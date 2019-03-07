@@ -6,13 +6,18 @@
 int main(int argc, char* argv[]){
     std::unique_ptr<Board> board (new Board(4, 4, 
         {
-            std::shared_ptr<Queen>(new Queen(3, 1)),
-            std::shared_ptr<Queen>(new Queen(1, 1)),
-            std::shared_ptr<Queen>(new Queen(2, 1)),
-            std::shared_ptr<Queen>(new Queen(1, 4))
+            Queen(3, 1),
+            Queen(1, 1),
+            Queen(2, 1),
+            Queen(3, 3)
         }));
     
-    // std::cout << "Before print\n";
+    auto children = board->GenChildBoards();
+    
+    std::cout << children->size() << '\n';
 
     board->Print();
+
+    for(u_int32_t i = 0; i < children->size(); i++)
+        children->at(i).Print();
 }

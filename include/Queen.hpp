@@ -2,21 +2,28 @@
 #define Queen_hpp
 
 #include <memory>
+// #include "uu_char.h"
 
-class Queen{
+struct Queen{
     private:
-        char x, y;
+        u_char x, y;
     public:
         Queen();
-        Queen(char xPos, char yPos);
+        Queen(u_char xPos, u_char yPos);
         ~Queen();
-        char GetX();
-        char GetY();
-        void SetX(char x);
-        void SetY(char y);
-        bool DoesCollide(std::shared_ptr<Queen> other);
-        bool DoesCollide(char x, char y);
-        std::shared_ptr<Queen> Copy();
+        u_char GetX();
+        u_char GetY();
+        void SetX(u_char x);
+        void SetY(u_char y);
+        bool DoesCollide(Queen other);
+        bool DoesCollide(u_char x, u_char y);
+
+        #pragma region Operator Overloads
+
+        bool operator ==(Queen other);
+        bool operator !=(Queen other);
+        
+        #pragma endregion
 };
 
 #endif

@@ -8,22 +8,31 @@
 class Board{
     private:
         //The size of the board
-        char x, y;
-        std::vector<std::shared_ptr<Queen>> queens;
+        u_char x, y;
+        std::vector<Queen> queens;
+
     public:
-        Board(char columns, char rows);
-        Board(char columns, char rows, 
-            std::vector<std::shared_ptr<Queen>> initQueens);
+        Board(u_char columns, u_char rows);
+        Board(u_char columns, u_char rows, 
+            std::vector<Queen> initQueens);
         ~Board();
-        char GetColumns();
-        char GetRows();
-        void AddQueen(char xPos, char yPos);
-        std::shared_ptr<Board> DeepCopy();
-        bool Collisions(char *count);
-        bool Collisions(std::shared_ptr<Queen> queen, char *count);
+        u_char GetColumns();
+        u_char GetRows();
+        void AddQueen(u_char xPos, u_char yPos);
+        Board* DeepCopy();
+        bool Collisions(u_char *count);
+        bool Collisions(Queen queen, u_char *count);
         void Print();
-        std::shared_ptr<Queen> QueenAtPos(char x, char y);
-        std::vector<std::unique_ptr<Board>> GenChildBoards();
+        Queen* QueenAtPos(u_char x, u_char y);
+        std::shared_ptr<std::vector<Board>> GenChildBoards();
+
+        void MoveQueen(u_char index, u_char newX, u_char newY);
+
+        #pragma region Operator Overloads
+
+        bool operator==(Board *other);
+
+        #pragma endregion
 };
 
 #endif

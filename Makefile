@@ -48,10 +48,10 @@ RM = /usr/local/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/sirhall/Documents/GitRepos/CPP_ECS
+CMAKE_SOURCE_DIR = /home/sirhall/Documents/GitRepos/nQueens
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/sirhall/Documents/GitRepos/CPP_ECS
+CMAKE_BINARY_DIR = /home/sirhall/Documents/GitRepos/nQueens
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -69,8 +69,8 @@ rebuild_cache/fast: rebuild_cache
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
-	/usr/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/local/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/sirhall/Documents/GitRepos/CPP_ECS/CMakeFiles /home/sirhall/Documents/GitRepos/CPP_ECS/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/sirhall/Documents/GitRepos/nQueens/CMakeFiles /home/sirhall/Documents/GitRepos/nQueens/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/sirhall/Documents/GitRepos/CPP_ECS/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/sirhall/Documents/GitRepos/nQueens/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -111,125 +111,44 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named ecs
+# Target rules for targets named nQueen
 
 # Build rule for target.
-ecs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ecs
-.PHONY : ecs
+nQueen: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 nQueen
+.PHONY : nQueen
 
 # fast build rule for target.
-ecs/fast:
-	$(MAKE) -f CMakeFiles/ecs.dir/build.make CMakeFiles/ecs.dir/build
-.PHONY : ecs/fast
+nQueen/fast:
+	$(MAKE) -f CMakeFiles/nQueen.dir/build.make CMakeFiles/nQueen.dir/build
+.PHONY : nQueen/fast
 
-src/component/Component.o: src/component/Component.cpp.o
+src/board/Board.o: src/board/Board.cpp.o
 
-.PHONY : src/component/Component.o
-
-# target to build an object file
-src/component/Component.cpp.o:
-	$(MAKE) -f CMakeFiles/ecs.dir/build.make CMakeFiles/ecs.dir/src/component/Component.cpp.o
-.PHONY : src/component/Component.cpp.o
-
-src/component/Component.i: src/component/Component.cpp.i
-
-.PHONY : src/component/Component.i
-
-# target to preprocess a source file
-src/component/Component.cpp.i:
-	$(MAKE) -f CMakeFiles/ecs.dir/build.make CMakeFiles/ecs.dir/src/component/Component.cpp.i
-.PHONY : src/component/Component.cpp.i
-
-src/component/Component.s: src/component/Component.cpp.s
-
-.PHONY : src/component/Component.s
-
-# target to generate assembly for a file
-src/component/Component.cpp.s:
-	$(MAKE) -f CMakeFiles/ecs.dir/build.make CMakeFiles/ecs.dir/src/component/Component.cpp.s
-.PHONY : src/component/Component.cpp.s
-
-src/components/Component_Position.o: src/components/Component_Position.cpp.o
-
-.PHONY : src/components/Component_Position.o
+.PHONY : src/board/Board.o
 
 # target to build an object file
-src/components/Component_Position.cpp.o:
-	$(MAKE) -f CMakeFiles/ecs.dir/build.make CMakeFiles/ecs.dir/src/components/Component_Position.cpp.o
-.PHONY : src/components/Component_Position.cpp.o
+src/board/Board.cpp.o:
+	$(MAKE) -f CMakeFiles/nQueen.dir/build.make CMakeFiles/nQueen.dir/src/board/Board.cpp.o
+.PHONY : src/board/Board.cpp.o
 
-src/components/Component_Position.i: src/components/Component_Position.cpp.i
+src/board/Board.i: src/board/Board.cpp.i
 
-.PHONY : src/components/Component_Position.i
-
-# target to preprocess a source file
-src/components/Component_Position.cpp.i:
-	$(MAKE) -f CMakeFiles/ecs.dir/build.make CMakeFiles/ecs.dir/src/components/Component_Position.cpp.i
-.PHONY : src/components/Component_Position.cpp.i
-
-src/components/Component_Position.s: src/components/Component_Position.cpp.s
-
-.PHONY : src/components/Component_Position.s
-
-# target to generate assembly for a file
-src/components/Component_Position.cpp.s:
-	$(MAKE) -f CMakeFiles/ecs.dir/build.make CMakeFiles/ecs.dir/src/components/Component_Position.cpp.s
-.PHONY : src/components/Component_Position.cpp.s
-
-src/components/Component_Velocity.o: src/components/Component_Velocity.cpp.o
-
-.PHONY : src/components/Component_Velocity.o
-
-# target to build an object file
-src/components/Component_Velocity.cpp.o:
-	$(MAKE) -f CMakeFiles/ecs.dir/build.make CMakeFiles/ecs.dir/src/components/Component_Velocity.cpp.o
-.PHONY : src/components/Component_Velocity.cpp.o
-
-src/components/Component_Velocity.i: src/components/Component_Velocity.cpp.i
-
-.PHONY : src/components/Component_Velocity.i
+.PHONY : src/board/Board.i
 
 # target to preprocess a source file
-src/components/Component_Velocity.cpp.i:
-	$(MAKE) -f CMakeFiles/ecs.dir/build.make CMakeFiles/ecs.dir/src/components/Component_Velocity.cpp.i
-.PHONY : src/components/Component_Velocity.cpp.i
+src/board/Board.cpp.i:
+	$(MAKE) -f CMakeFiles/nQueen.dir/build.make CMakeFiles/nQueen.dir/src/board/Board.cpp.i
+.PHONY : src/board/Board.cpp.i
 
-src/components/Component_Velocity.s: src/components/Component_Velocity.cpp.s
+src/board/Board.s: src/board/Board.cpp.s
 
-.PHONY : src/components/Component_Velocity.s
-
-# target to generate assembly for a file
-src/components/Component_Velocity.cpp.s:
-	$(MAKE) -f CMakeFiles/ecs.dir/build.make CMakeFiles/ecs.dir/src/components/Component_Velocity.cpp.s
-.PHONY : src/components/Component_Velocity.cpp.s
-
-src/entity/Entity.o: src/entity/Entity.cpp.o
-
-.PHONY : src/entity/Entity.o
-
-# target to build an object file
-src/entity/Entity.cpp.o:
-	$(MAKE) -f CMakeFiles/ecs.dir/build.make CMakeFiles/ecs.dir/src/entity/Entity.cpp.o
-.PHONY : src/entity/Entity.cpp.o
-
-src/entity/Entity.i: src/entity/Entity.cpp.i
-
-.PHONY : src/entity/Entity.i
-
-# target to preprocess a source file
-src/entity/Entity.cpp.i:
-	$(MAKE) -f CMakeFiles/ecs.dir/build.make CMakeFiles/ecs.dir/src/entity/Entity.cpp.i
-.PHONY : src/entity/Entity.cpp.i
-
-src/entity/Entity.s: src/entity/Entity.cpp.s
-
-.PHONY : src/entity/Entity.s
+.PHONY : src/board/Board.s
 
 # target to generate assembly for a file
-src/entity/Entity.cpp.s:
-	$(MAKE) -f CMakeFiles/ecs.dir/build.make CMakeFiles/ecs.dir/src/entity/Entity.cpp.s
-.PHONY : src/entity/Entity.cpp.s
+src/board/Board.cpp.s:
+	$(MAKE) -f CMakeFiles/nQueen.dir/build.make CMakeFiles/nQueen.dir/src/board/Board.cpp.s
+.PHONY : src/board/Board.cpp.s
 
 src/main.o: src/main.cpp.o
 
@@ -237,7 +156,7 @@ src/main.o: src/main.cpp.o
 
 # target to build an object file
 src/main.cpp.o:
-	$(MAKE) -f CMakeFiles/ecs.dir/build.make CMakeFiles/ecs.dir/src/main.cpp.o
+	$(MAKE) -f CMakeFiles/nQueen.dir/build.make CMakeFiles/nQueen.dir/src/main.cpp.o
 .PHONY : src/main.cpp.o
 
 src/main.i: src/main.cpp.i
@@ -246,7 +165,7 @@ src/main.i: src/main.cpp.i
 
 # target to preprocess a source file
 src/main.cpp.i:
-	$(MAKE) -f CMakeFiles/ecs.dir/build.make CMakeFiles/ecs.dir/src/main.cpp.i
+	$(MAKE) -f CMakeFiles/nQueen.dir/build.make CMakeFiles/nQueen.dir/src/main.cpp.i
 .PHONY : src/main.cpp.i
 
 src/main.s: src/main.cpp.s
@@ -255,143 +174,35 @@ src/main.s: src/main.cpp.s
 
 # target to generate assembly for a file
 src/main.cpp.s:
-	$(MAKE) -f CMakeFiles/ecs.dir/build.make CMakeFiles/ecs.dir/src/main.cpp.s
+	$(MAKE) -f CMakeFiles/nQueen.dir/build.make CMakeFiles/nQueen.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
-src/math/Vec3.o: src/math/Vec3.cpp.o
+src/queen/Queen.o: src/queen/Queen.cpp.o
 
-.PHONY : src/math/Vec3.o
-
-# target to build an object file
-src/math/Vec3.cpp.o:
-	$(MAKE) -f CMakeFiles/ecs.dir/build.make CMakeFiles/ecs.dir/src/math/Vec3.cpp.o
-.PHONY : src/math/Vec3.cpp.o
-
-src/math/Vec3.i: src/math/Vec3.cpp.i
-
-.PHONY : src/math/Vec3.i
-
-# target to preprocess a source file
-src/math/Vec3.cpp.i:
-	$(MAKE) -f CMakeFiles/ecs.dir/build.make CMakeFiles/ecs.dir/src/math/Vec3.cpp.i
-.PHONY : src/math/Vec3.cpp.i
-
-src/math/Vec3.s: src/math/Vec3.cpp.s
-
-.PHONY : src/math/Vec3.s
-
-# target to generate assembly for a file
-src/math/Vec3.cpp.s:
-	$(MAKE) -f CMakeFiles/ecs.dir/build.make CMakeFiles/ecs.dir/src/math/Vec3.cpp.s
-.PHONY : src/math/Vec3.cpp.s
-
-src/simulation/Simulation.o: src/simulation/Simulation.cpp.o
-
-.PHONY : src/simulation/Simulation.o
+.PHONY : src/queen/Queen.o
 
 # target to build an object file
-src/simulation/Simulation.cpp.o:
-	$(MAKE) -f CMakeFiles/ecs.dir/build.make CMakeFiles/ecs.dir/src/simulation/Simulation.cpp.o
-.PHONY : src/simulation/Simulation.cpp.o
+src/queen/Queen.cpp.o:
+	$(MAKE) -f CMakeFiles/nQueen.dir/build.make CMakeFiles/nQueen.dir/src/queen/Queen.cpp.o
+.PHONY : src/queen/Queen.cpp.o
 
-src/simulation/Simulation.i: src/simulation/Simulation.cpp.i
+src/queen/Queen.i: src/queen/Queen.cpp.i
 
-.PHONY : src/simulation/Simulation.i
-
-# target to preprocess a source file
-src/simulation/Simulation.cpp.i:
-	$(MAKE) -f CMakeFiles/ecs.dir/build.make CMakeFiles/ecs.dir/src/simulation/Simulation.cpp.i
-.PHONY : src/simulation/Simulation.cpp.i
-
-src/simulation/Simulation.s: src/simulation/Simulation.cpp.s
-
-.PHONY : src/simulation/Simulation.s
-
-# target to generate assembly for a file
-src/simulation/Simulation.cpp.s:
-	$(MAKE) -f CMakeFiles/ecs.dir/build.make CMakeFiles/ecs.dir/src/simulation/Simulation.cpp.s
-.PHONY : src/simulation/Simulation.cpp.s
-
-src/system/CompGroup.o: src/system/CompGroup.cpp.o
-
-.PHONY : src/system/CompGroup.o
-
-# target to build an object file
-src/system/CompGroup.cpp.o:
-	$(MAKE) -f CMakeFiles/ecs.dir/build.make CMakeFiles/ecs.dir/src/system/CompGroup.cpp.o
-.PHONY : src/system/CompGroup.cpp.o
-
-src/system/CompGroup.i: src/system/CompGroup.cpp.i
-
-.PHONY : src/system/CompGroup.i
+.PHONY : src/queen/Queen.i
 
 # target to preprocess a source file
-src/system/CompGroup.cpp.i:
-	$(MAKE) -f CMakeFiles/ecs.dir/build.make CMakeFiles/ecs.dir/src/system/CompGroup.cpp.i
-.PHONY : src/system/CompGroup.cpp.i
+src/queen/Queen.cpp.i:
+	$(MAKE) -f CMakeFiles/nQueen.dir/build.make CMakeFiles/nQueen.dir/src/queen/Queen.cpp.i
+.PHONY : src/queen/Queen.cpp.i
 
-src/system/CompGroup.s: src/system/CompGroup.cpp.s
+src/queen/Queen.s: src/queen/Queen.cpp.s
 
-.PHONY : src/system/CompGroup.s
-
-# target to generate assembly for a file
-src/system/CompGroup.cpp.s:
-	$(MAKE) -f CMakeFiles/ecs.dir/build.make CMakeFiles/ecs.dir/src/system/CompGroup.cpp.s
-.PHONY : src/system/CompGroup.cpp.s
-
-src/system/System.o: src/system/System.cpp.o
-
-.PHONY : src/system/System.o
-
-# target to build an object file
-src/system/System.cpp.o:
-	$(MAKE) -f CMakeFiles/ecs.dir/build.make CMakeFiles/ecs.dir/src/system/System.cpp.o
-.PHONY : src/system/System.cpp.o
-
-src/system/System.i: src/system/System.cpp.i
-
-.PHONY : src/system/System.i
-
-# target to preprocess a source file
-src/system/System.cpp.i:
-	$(MAKE) -f CMakeFiles/ecs.dir/build.make CMakeFiles/ecs.dir/src/system/System.cpp.i
-.PHONY : src/system/System.cpp.i
-
-src/system/System.s: src/system/System.cpp.s
-
-.PHONY : src/system/System.s
+.PHONY : src/queen/Queen.s
 
 # target to generate assembly for a file
-src/system/System.cpp.s:
-	$(MAKE) -f CMakeFiles/ecs.dir/build.make CMakeFiles/ecs.dir/src/system/System.cpp.s
-.PHONY : src/system/System.cpp.s
-
-src/systems/System_DeltaPosByVel.o: src/systems/System_DeltaPosByVel.cpp.o
-
-.PHONY : src/systems/System_DeltaPosByVel.o
-
-# target to build an object file
-src/systems/System_DeltaPosByVel.cpp.o:
-	$(MAKE) -f CMakeFiles/ecs.dir/build.make CMakeFiles/ecs.dir/src/systems/System_DeltaPosByVel.cpp.o
-.PHONY : src/systems/System_DeltaPosByVel.cpp.o
-
-src/systems/System_DeltaPosByVel.i: src/systems/System_DeltaPosByVel.cpp.i
-
-.PHONY : src/systems/System_DeltaPosByVel.i
-
-# target to preprocess a source file
-src/systems/System_DeltaPosByVel.cpp.i:
-	$(MAKE) -f CMakeFiles/ecs.dir/build.make CMakeFiles/ecs.dir/src/systems/System_DeltaPosByVel.cpp.i
-.PHONY : src/systems/System_DeltaPosByVel.cpp.i
-
-src/systems/System_DeltaPosByVel.s: src/systems/System_DeltaPosByVel.cpp.s
-
-.PHONY : src/systems/System_DeltaPosByVel.s
-
-# target to generate assembly for a file
-src/systems/System_DeltaPosByVel.cpp.s:
-	$(MAKE) -f CMakeFiles/ecs.dir/build.make CMakeFiles/ecs.dir/src/systems/System_DeltaPosByVel.cpp.s
-.PHONY : src/systems/System_DeltaPosByVel.cpp.s
+src/queen/Queen.cpp.s:
+	$(MAKE) -f CMakeFiles/nQueen.dir/build.make CMakeFiles/nQueen.dir/src/queen/Queen.cpp.s
+.PHONY : src/queen/Queen.cpp.s
 
 # Help Target
 help:
@@ -400,38 +211,17 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... ecs"
+	@echo "... nQueen"
 	@echo "... edit_cache"
-	@echo "... src/component/Component.o"
-	@echo "... src/component/Component.i"
-	@echo "... src/component/Component.s"
-	@echo "... src/components/Component_Position.o"
-	@echo "... src/components/Component_Position.i"
-	@echo "... src/components/Component_Position.s"
-	@echo "... src/components/Component_Velocity.o"
-	@echo "... src/components/Component_Velocity.i"
-	@echo "... src/components/Component_Velocity.s"
-	@echo "... src/entity/Entity.o"
-	@echo "... src/entity/Entity.i"
-	@echo "... src/entity/Entity.s"
+	@echo "... src/board/Board.o"
+	@echo "... src/board/Board.i"
+	@echo "... src/board/Board.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
-	@echo "... src/math/Vec3.o"
-	@echo "... src/math/Vec3.i"
-	@echo "... src/math/Vec3.s"
-	@echo "... src/simulation/Simulation.o"
-	@echo "... src/simulation/Simulation.i"
-	@echo "... src/simulation/Simulation.s"
-	@echo "... src/system/CompGroup.o"
-	@echo "... src/system/CompGroup.i"
-	@echo "... src/system/CompGroup.s"
-	@echo "... src/system/System.o"
-	@echo "... src/system/System.i"
-	@echo "... src/system/System.s"
-	@echo "... src/systems/System_DeltaPosByVel.o"
-	@echo "... src/systems/System_DeltaPosByVel.i"
-	@echo "... src/systems/System_DeltaPosByVel.s"
+	@echo "... src/queen/Queen.o"
+	@echo "... src/queen/Queen.i"
+	@echo "... src/queen/Queen.s"
 .PHONY : help
 
 

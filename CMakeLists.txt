@@ -16,6 +16,6 @@ file(GLOB_RECURSE nQueen_SRCS
     RELATIVE_PATH
 )
 
-add_executable(ecs ${nQueen_SRCS})
+add_executable(nQueen ${nQueen_SRCS})
 
-target_include_directories(ecs PUBLIC ${INCLUDE_DIR})
+target_include_directories(nQueen PUBLIC ${INCLUDE_DIR})

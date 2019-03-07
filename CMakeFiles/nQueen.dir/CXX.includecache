@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/sirhall/Documents/GitRepos/nQueens/src/main.cpp
+iostream
+-
+memory
+-
+Queen.hpp
+/home/sirhall/Documents/GitRepos/nQueens/src/Queen.hpp
+Board.hpp
+/home/sirhall/Documents/GitRepos/nQueens/src/Board.hpp
+
+include/Board.hpp
+vector
+-
+memory
+-
+Queen.hpp
+include/Queen.hpp
+
+include/Queen.hpp
+memory
+-
+

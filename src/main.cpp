@@ -18,6 +18,8 @@ int main(int argc, char* argv[]){
 
     board->Print();
 
-    for(u_int32_t i = 0; i < children->size(); i++)
+    for(u_int32_t i = 0; i < children->size(); i++){
         children->at(i).Print();
+        std::cout << '\n';
+    }
 }

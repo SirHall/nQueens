@@ -52,9 +52,9 @@ bool Board::Collisions(u_char *count = NULL){
     return collisions > 0;
 }
 
-Queen* Board::QueenAtPos(u_char x, u_char y){
+Queen* Board::QueenAtPos(u_char checkX, u_char checkY){
     for(u_char i = 0; i < queens.size(); i++){
-        if(queens[i].GetX() == x && queens[i].GetY() == y){
+        if(queens[i].GetX() == checkX && queens[i].GetY() == checkY){
             return &queens[i];
         }
     }
@@ -76,17 +76,16 @@ std::shared_ptr<std::vector<Board>> Board::GenChildBoards(){
     for(u_char index = 0; index < queens.size(); index++){
         Queen queen = queens[index];
 
-        for(u_char xDiff = -1; xDiff <= 1; xDiff++){
-            for(u_char yDiff = -1; yDiff <= 1; yDiff++){
+        for(signed char xDiff = -1; xDiff <= 1; xDiff++){
+            for(signed char yDiff = -1; yDiff <= 1; yDiff++){
                 if(yDiff == 0 && xDiff == 0) 
                     continue;
                 u_char 
                     checkX = queen.GetX() + xDiff,
                     checkY = queen.GetY() + yDiff; 
                 if(
-                    checkX >= 0 && checkX < x &&
-                    checkY >= 0 && checkY < y && 
-                    QueenAtPos(checkX, checkY == NULL)
+                    checkX < x && checkY < y && 
+                    QueenAtPos(checkX, checkY) == NULL
                 ){//Generate board
                     Board* newBoard = DeepCopy();
                     newBoard->MoveQueen(index, checkX, checkY);

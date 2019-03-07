@@ -1,5 +1,6 @@
 #include "Board.hpp"
 #include <iostream>
+#include <algorithm>
 
 Board::Board(u_char columns, u_char rows){
     x = columns;
@@ -34,6 +35,8 @@ bool Board::Collisions(Queen queen, u_char *count = NULL){
             collisions++;
         }
     }
+    if(count != NULL)
+        *count = collisions / 2;
     return collisions > 0;
 }
 
@@ -46,9 +49,10 @@ bool Board::Collisions(u_char *count = NULL){
                     return true;
                 collisions++;
             }
-    }
         }
-    *count = collisions;
+    }
+    if(count != NULL)
+        *count = collisions / 2;
     return collisions > 0;
 }
 
@@ -68,10 +72,10 @@ Board* Board::DeepCopy(){
     return newBoard;
 }
 
-std::shared_ptr<std::vector<Board>> Board::GenChildBoards(){
+std::shared_ptr<std::vector<std::shared_ptr<Board>>> Board::GenChildBoards(){
     
-    std::shared_ptr<std::vector<Board>>
-        childBoards (new std::vector<Board>); 
+    std::shared_ptr<std::vector<std::shared_ptr<Board>>>
+        childBoards (new std::vector<std::shared_ptr<Board>>); 
 
     for(u_char index = 0; index < queens.size(); index++){
         Queen queen = queens[index];
@@ -87,10 +91,9 @@ std::shared_ptr<std::vector<Board>> Board::GenChildBoards(){
                     checkX < x && checkY < y && 
                     QueenAtPos(checkX, checkY) == NULL
                 ){//Generate board
-                    Board* newBoard = DeepCopy();
+                    auto newBoard = std::shared_ptr<Board>(DeepCopy());
                     newBoard->MoveQueen(index, checkX, checkY);
-                    childBoards->push_back(*newBoard);
-                    delete newBoard;
+                    childBoards->push_back(newBoard);
                 }
             }
         }
@@ -104,6 +107,38 @@ void Board::MoveQueen(u_char index, u_char newX, u_char newY){
         throw std::invalid_argument("'index' falls outside of bounds");
     queens[index].SetX(newX);
     queens[index].SetY(newY);
+}
+
+void Board::MoveQueen(u_char index, Dir direction){
+    if(index >= queens.size())
+        throw std::invalid_argument("'index' falls outside of bounds");
+    signed char xRel = 0, yRel = 0;
+
+    switch (direction)
+    {
+        case Dir::Up:           xRel =  0;  yRel = -1; break;
+        case Dir::Down:         xRel =  0;  yRel =  1; break;
+        case Dir::Right:        xRel =  1;  yRel =  0; break;
+        case Dir::Left:         xRel = -1;  yRel =  0; break;
+        case Dir::Up_Right:     xRel =  1;  yRel =  -1; break;
+        case Dir::Up_Left:      xRel =  -1; yRel = -1; break;
+        case Dir::Down_Right:   xRel =  1;  yRel =  1; break;
+        case Dir::Down_Left:    xRel =  -1; yRel =  1; break;
+    }
+
+    //Making sure that the queen stays in bounds
+    if  (
+            !(xRel == 1 && queens[index].GetX() >= x - 1) && 
+            !(xRel == -1 && queens[index].GetX() == 0)
+        )
+        queens[index].SetX(queens[index].GetX() + xRel);
+        
+    if  (
+            !(yRel == 1 && queens[index].GetY() >= y - 1) && 
+            !(yRel == -1 && queens[index].GetY() == 0)
+        )
+        queens[index].SetY(queens[index].GetY() + yRel);
+
 }
 
 #pragma region Operator Overloads
@@ -122,24 +157,32 @@ bool Board::operator==(Board *other){
 #pragma endregion
 
 void Board::Print(){
-    Queen *cQueen;
+    Print('\n', '\t', 'O', 'X', ' ', '#');
+}
 
-    for(u_char column = 0; column < x; column++){
-        std::cout << '\t';
-        for(u_char row = 0; row < y; row++){
+void Board::Print(
+            char sep = '\n', char indent = '\t', 
+            char aliveQueen = 'O', char deadQueen = 'X', 
+            char whiteSquare = ' ', char blackSquare = '#'){
+    Queen *cQueen;
+    
+    for(u_char row = 0; row < y; row++){
+        std::cout << indent;
+        // for(u_char row = y - 1; row >= 0; row--){
+        for(u_char column = 0; column < x; column++){
             cQueen = QueenAtPos(column, row); 
             if(cQueen != NULL){
                 if(Collisions(*cQueen))
-                    std::cout << 'X'; //Queen is dead
+                    std::cout << deadQueen; //Queen is dead
                 else
-                    std::cout << 'O'; //Queen is alive
+                    std::cout << aliveQueen; //Queen is alive
             }else{
                 std::cout << 
                     (((row + column) % 2 == 0)
-                        ? ' ' : '#');
+                        ? whiteSquare : blackSquare);
             }
         }
-        std::cout << '\n';
+        std::cout << sep;
     }
 }
 

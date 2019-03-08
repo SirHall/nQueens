@@ -123,6 +123,60 @@ nQueen/fast:
 	$(MAKE) -f CMakeFiles/nQueen.dir/build.make CMakeFiles/nQueen.dir/build
 .PHONY : nQueen/fast
 
+src/Misc/MathMore.o: src/Misc/MathMore.cpp.o
+
+.PHONY : src/Misc/MathMore.o
+
+# target to build an object file
+src/Misc/MathMore.cpp.o:
+	$(MAKE) -f CMakeFiles/nQueen.dir/build.make CMakeFiles/nQueen.dir/src/Misc/MathMore.cpp.o
+.PHONY : src/Misc/MathMore.cpp.o
+
+src/Misc/MathMore.i: src/Misc/MathMore.cpp.i
+
+.PHONY : src/Misc/MathMore.i
+
+# target to preprocess a source file
+src/Misc/MathMore.cpp.i:
+	$(MAKE) -f CMakeFiles/nQueen.dir/build.make CMakeFiles/nQueen.dir/src/Misc/MathMore.cpp.i
+.PHONY : src/Misc/MathMore.cpp.i
+
+src/Misc/MathMore.s: src/Misc/MathMore.cpp.s
+
+.PHONY : src/Misc/MathMore.s
+
+# target to generate assembly for a file
+src/Misc/MathMore.cpp.s:
+	$(MAKE) -f CMakeFiles/nQueen.dir/build.make CMakeFiles/nQueen.dir/src/Misc/MathMore.cpp.s
+.PHONY : src/Misc/MathMore.cpp.s
+
+src/Misc/ProgressBar.o: src/Misc/ProgressBar.cpp.o
+
+.PHONY : src/Misc/ProgressBar.o
+
+# target to build an object file
+src/Misc/ProgressBar.cpp.o:
+	$(MAKE) -f CMakeFiles/nQueen.dir/build.make CMakeFiles/nQueen.dir/src/Misc/ProgressBar.cpp.o
+.PHONY : src/Misc/ProgressBar.cpp.o
+
+src/Misc/ProgressBar.i: src/Misc/ProgressBar.cpp.i
+
+.PHONY : src/Misc/ProgressBar.i
+
+# target to preprocess a source file
+src/Misc/ProgressBar.cpp.i:
+	$(MAKE) -f CMakeFiles/nQueen.dir/build.make CMakeFiles/nQueen.dir/src/Misc/ProgressBar.cpp.i
+.PHONY : src/Misc/ProgressBar.cpp.i
+
+src/Misc/ProgressBar.s: src/Misc/ProgressBar.cpp.s
+
+.PHONY : src/Misc/ProgressBar.s
+
+# target to generate assembly for a file
+src/Misc/ProgressBar.cpp.s:
+	$(MAKE) -f CMakeFiles/nQueen.dir/build.make CMakeFiles/nQueen.dir/src/Misc/ProgressBar.cpp.s
+.PHONY : src/Misc/ProgressBar.cpp.s
+
 src/board/Board.o: src/board/Board.cpp.o
 
 .PHONY : src/board/Board.o
@@ -213,6 +267,12 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... nQueen"
 	@echo "... edit_cache"
+	@echo "... src/Misc/MathMore.o"
+	@echo "... src/Misc/MathMore.i"
+	@echo "... src/Misc/MathMore.s"
+	@echo "... src/Misc/ProgressBar.o"
+	@echo "... src/Misc/ProgressBar.i"
+	@echo "... src/Misc/ProgressBar.s"
 	@echo "... src/board/Board.o"
 	@echo "... src/board/Board.i"
 	@echo "... src/board/Board.s"

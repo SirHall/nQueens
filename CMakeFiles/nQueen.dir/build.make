@@ -57,9 +57,35 @@ include CMakeFiles/nQueen.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/nQueen.dir/flags.make
 
+CMakeFiles/nQueen.dir/src/Misc/MathMore.cpp.o: CMakeFiles/nQueen.dir/flags.make
+CMakeFiles/nQueen.dir/src/Misc/MathMore.cpp.o: src/Misc/MathMore.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sirhall/Documents/GitRepos/nQueens/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/nQueen.dir/src/Misc/MathMore.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/nQueen.dir/src/Misc/MathMore.cpp.o -c /home/sirhall/Documents/GitRepos/nQueens/src/Misc/MathMore.cpp
+
+CMakeFiles/nQueen.dir/src/Misc/MathMore.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/nQueen.dir/src/Misc/MathMore.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sirhall/Documents/GitRepos/nQueens/src/Misc/MathMore.cpp > CMakeFiles/nQueen.dir/src/Misc/MathMore.cpp.i
+
+CMakeFiles/nQueen.dir/src/Misc/MathMore.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/nQueen.dir/src/Misc/MathMore.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sirhall/Documents/GitRepos/nQueens/src/Misc/MathMore.cpp -o CMakeFiles/nQueen.dir/src/Misc/MathMore.cpp.s
+
+CMakeFiles/nQueen.dir/src/Misc/ProgressBar.cpp.o: CMakeFiles/nQueen.dir/flags.make
+CMakeFiles/nQueen.dir/src/Misc/ProgressBar.cpp.o: src/Misc/ProgressBar.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sirhall/Documents/GitRepos/nQueens/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/nQueen.dir/src/Misc/ProgressBar.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/nQueen.dir/src/Misc/ProgressBar.cpp.o -c /home/sirhall/Documents/GitRepos/nQueens/src/Misc/ProgressBar.cpp
+
+CMakeFiles/nQueen.dir/src/Misc/ProgressBar.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/nQueen.dir/src/Misc/ProgressBar.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sirhall/Documents/GitRepos/nQueens/src/Misc/ProgressBar.cpp > CMakeFiles/nQueen.dir/src/Misc/ProgressBar.cpp.i
+
+CMakeFiles/nQueen.dir/src/Misc/ProgressBar.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/nQueen.dir/src/Misc/ProgressBar.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sirhall/Documents/GitRepos/nQueens/src/Misc/ProgressBar.cpp -o CMakeFiles/nQueen.dir/src/Misc/ProgressBar.cpp.s
+
 CMakeFiles/nQueen.dir/src/board/Board.cpp.o: CMakeFiles/nQueen.dir/flags.make
 CMakeFiles/nQueen.dir/src/board/Board.cpp.o: src/board/Board.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sirhall/Documents/GitRepos/nQueens/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/nQueen.dir/src/board/Board.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sirhall/Documents/GitRepos/nQueens/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/nQueen.dir/src/board/Board.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/nQueen.dir/src/board/Board.cpp.o -c /home/sirhall/Documents/GitRepos/nQueens/src/board/Board.cpp
 
 CMakeFiles/nQueen.dir/src/board/Board.cpp.i: cmake_force
@@ -72,7 +98,7 @@ CMakeFiles/nQueen.dir/src/board/Board.cpp.s: cmake_force
 
 CMakeFiles/nQueen.dir/src/main.cpp.o: CMakeFiles/nQueen.dir/flags.make
 CMakeFiles/nQueen.dir/src/main.cpp.o: src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sirhall/Documents/GitRepos/nQueens/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/nQueen.dir/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sirhall/Documents/GitRepos/nQueens/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/nQueen.dir/src/main.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/nQueen.dir/src/main.cpp.o -c /home/sirhall/Documents/GitRepos/nQueens/src/main.cpp
 
 CMakeFiles/nQueen.dir/src/main.cpp.i: cmake_force
@@ -85,7 +111,7 @@ CMakeFiles/nQueen.dir/src/main.cpp.s: cmake_force
 
 CMakeFiles/nQueen.dir/src/queen/Queen.cpp.o: CMakeFiles/nQueen.dir/flags.make
 CMakeFiles/nQueen.dir/src/queen/Queen.cpp.o: src/queen/Queen.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sirhall/Documents/GitRepos/nQueens/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/nQueen.dir/src/queen/Queen.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sirhall/Documents/GitRepos/nQueens/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/nQueen.dir/src/queen/Queen.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/nQueen.dir/src/queen/Queen.cpp.o -c /home/sirhall/Documents/GitRepos/nQueens/src/queen/Queen.cpp
 
 CMakeFiles/nQueen.dir/src/queen/Queen.cpp.i: cmake_force
@@ -98,6 +124,8 @@ CMakeFiles/nQueen.dir/src/queen/Queen.cpp.s: cmake_force
 
 # Object files for target nQueen
 nQueen_OBJECTS = \
+"CMakeFiles/nQueen.dir/src/Misc/MathMore.cpp.o" \
+"CMakeFiles/nQueen.dir/src/Misc/ProgressBar.cpp.o" \
 "CMakeFiles/nQueen.dir/src/board/Board.cpp.o" \
 "CMakeFiles/nQueen.dir/src/main.cpp.o" \
 "CMakeFiles/nQueen.dir/src/queen/Queen.cpp.o"
@@ -105,12 +133,14 @@ nQueen_OBJECTS = \
 # External object files for target nQueen
 nQueen_EXTERNAL_OBJECTS =
 
+nQueen: CMakeFiles/nQueen.dir/src/Misc/MathMore.cpp.o
+nQueen: CMakeFiles/nQueen.dir/src/Misc/ProgressBar.cpp.o
 nQueen: CMakeFiles/nQueen.dir/src/board/Board.cpp.o
 nQueen: CMakeFiles/nQueen.dir/src/main.cpp.o
 nQueen: CMakeFiles/nQueen.dir/src/queen/Queen.cpp.o
 nQueen: CMakeFiles/nQueen.dir/build.make
 nQueen: CMakeFiles/nQueen.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/sirhall/Documents/GitRepos/nQueens/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable nQueen"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/sirhall/Documents/GitRepos/nQueens/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable nQueen"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/nQueen.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

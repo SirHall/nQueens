@@ -17,6 +17,12 @@ Board.hpp
 /home/sirhall/Documents/GitRepos/nQueens/src/Board.hpp
 Dir.hpp
 /home/sirhall/Documents/GitRepos/nQueens/src/Dir.hpp
+ProgressBar.hpp
+/home/sirhall/Documents/GitRepos/nQueens/src/ProgressBar.hpp
+MathMore.hpp
+/home/sirhall/Documents/GitRepos/nQueens/src/MathMore.hpp
+string
+-
 
 include/Board.hpp
 vector
@@ -29,6 +35,10 @@ Dir.hpp
 include/Dir.hpp
 
 include/Dir.hpp
+
+include/MathMore.hpp
+
+include/ProgressBar.hpp
 
 include/Queen.hpp
 memory

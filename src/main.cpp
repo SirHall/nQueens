@@ -6,6 +6,17 @@
 #include "ProgressBar.hpp"
 #include "MathMore.hpp"
 #include <string>
+#include <chrono>
+#include <sstream>
+#include <cmath>
+using namespace std::chrono;
+
+double GetTime(steady_clock::time_point start){
+    auto now = steady_clock::now();
+    steady_clock::duration duration = now - start;
+    return double(duration.count()) * 
+        steady_clock::period::num / steady_clock::period::den;
+}
 
 int main(int argc, char* argv[]){
 
@@ -40,6 +51,9 @@ int main(int argc, char* argv[]){
     u_int previousSize = 0;
     boards->push_back(initBoard);
 
+    auto clock_start = steady_clock::now();
+
+    #pragma region Search Space
 
     for(long i = 0; i < layers || layers < 0; i++){
         std::shared_ptr<std::vector<std::shared_ptr<Board>>> children
@@ -49,6 +63,7 @@ int main(int argc, char* argv[]){
             else
                 std::cout << "\r\t";
             std::cout << " - " << solutions->size() << '/' << boards->size() 
+                << '\t' << std::round(GetTime(clock_start) * 10) / 10 
                 << std::flush;
         for(auto board : *boards)
             children = board->GenChildBoards();
@@ -72,8 +87,11 @@ int main(int argc, char* argv[]){
     }
     std::cout << "\r\n";
 
+    #pragma endregion
+
     std::cout << "\tBoards Discovered: " << boards->size() << '\n';
     std::cout << "\n\n\t---SOLUTIONS---\n";
+    std::cout << "\t " << GetTime(clock_start) << " seconds\n";
     std::cout << "\tFound " << solutions->size() << " solutions:\n\n";
     
     if(solutions->size() > 0){

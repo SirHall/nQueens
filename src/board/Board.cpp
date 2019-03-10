@@ -52,7 +52,7 @@ bool Board::Collisions(u_char *count = NULL){
         }
     }
     if(count != NULL)
-        *count = collisions / 2;
+        *count = collisions;
     return collisions > 0;
 }
 
@@ -76,12 +76,12 @@ std::shared_ptr<std::vector<std::shared_ptr<Board>>> Board::GenChildBoards(){
     
     std::shared_ptr<std::vector<std::shared_ptr<Board>>>
         childBoards (new std::vector<std::shared_ptr<Board>>); 
-
-    for(u_char index = 0; index < queens.size(); index++){
+    
+    for(u_char index = 0; index < queens.size(); index++){ //All queens
         Queen queen = queens[index];
-
-        for(signed char xDiff = -1; xDiff <= 1; xDiff++){
-            for(signed char yDiff = -1; yDiff <= 1; yDiff++){
+    
+        for(signed char xDiff = -1; xDiff <= 1; xDiff++){ //All x moves
+            for(signed char yDiff = -1; yDiff <= 1; yDiff++){ //All y moves
                 if(yDiff == 0 && xDiff == 0) 
                     continue;
                 u_char 
@@ -144,12 +144,13 @@ void Board::MoveQueen(u_char index, Dir direction){
 #pragma region Operator Overloads
 
 bool Board::operator==(Board *other){
+    //Check our dimensions, and queen count are equal
     if(x == other->x && y == other->y && queens.size() == other->queens.size()){
         for(u_char i = 0; i < queens.size(); i++){
-            if(queens[i] != other->queens[i])
+            if(queens[i] != other->queens[i]) //Queens have different positions
                 return false;
         }
-        return true;
+        return true; //Everything is the same
     }
     return false;
 }

@@ -21,8 +21,9 @@ void Queen::SetX(u_char x){this->x = x;}
 void Queen::SetY(u_char y){this->y = y;}
 
 bool Queen::DoesCollide(u_char x, u_char y){
-    u_char xDiff = x - this->x;
-    u_char yDiff = y - this->y;
+    //Must cast to int so we can have negative values
+    int xDiff = (int)x - (int)this->x;
+    int yDiff = (int)y - (int)this->y;
     return xDiff == 0 || yDiff == 0 || (std::abs(xDiff) == std::abs(yDiff));
 }
 

@@ -52,40 +52,59 @@ int main(int argc, char* argv[]){
     boards->push_back(initBoard);
 
     auto clock_start = steady_clock::now();
+    auto clock_lastPrint = steady_clock::now();
 
     #pragma region Search Space
 
     for(long i = 0; i < layers || layers < 0; i++){
+
         std::shared_ptr<std::vector<std::shared_ptr<Board>>> children
             (new std::vector<std::shared_ptr<Board>>());
+        
+        for(auto board : *boards){ //For all found boards
+            auto tmpChildren = board->GenChildBoards(); //Generate its children
+            for(auto childBoard : *tmpChildren)
+                children->push_back(childBoard);
+        }
+
+        for(auto childBoard : *children){ //Ensure it's a valid board
+
+        #pragma region Printing
+
+        if(GetTime(clock_lastPrint) > (1/11.0)){ //Update the display at 30fps
+            clock_lastPrint = steady_clock::now();
             if(layers > 0)
                 PrintProgress((double)i / (layers - 1), 50);
             else
-                std::cout << "\r\t";
-            std::cout << " - " << solutions->size() << '/' << boards->size() 
-                << '\t' << std::round(GetTime(clock_start) * 10) / 10 
+                std::cout << "\r    ";
+            std::cout << " - "
+                <<  "(n=" << i + 1 << ") "
+                << solutions->size() << '/' << boards->size() 
+                << "    " << std::round(GetTime(clock_start) * 100) / 100
+                << "    "
                 << std::flush;
-        for(auto board : *boards)
-            children = board->GenChildBoards();
-        for(auto childBoard : *children){
+        }
+
+        #pragma endregion
+
             bool alreadyExists = false;
-            for(auto board : *boards)
+            for(auto board : *boards) //This board already exists
                 if(*childBoard == board.get()){
                     alreadyExists = true;
                     break;}
-            if(!alreadyExists){
-                boards->push_back(childBoard);
-                if(boards->size() == boards->capacity())
-                    boards->reserve(boards->capacity() * 2);
-                if(!childBoard->Collisions(NULL))
-                    solutions->push_back(childBoard);
+            if(!alreadyExists){ //If this is a unique board
+                boards->push_back(childBoard); //Push to main boards
+                if(boards->size() == boards->capacity()) //If full...
+                    boards->reserve(boards->capacity() * 2); //double capacity
+                if(!childBoard->Collisions(NULL)) //If board has no collisions
+                    solutions->push_back(childBoard); //Then add to solutions
             }
         }
         if(previousSize == boards->size())//We have scanned all possiblities
-            break;
-        previousSize = boards->size();
+            break; //Stop searching
+        previousSize = boards->size(); //How many boards we found this iteration 
     }
-    std::cout << "\r\n";
+    std::cout << "\n"; //Jump to new line from progress bar
 
     #pragma endregion
 

@@ -1,4 +1,3 @@
-
 cmake_minimum_required(VERSION 3.5)
 
 add_compile_options(-Wall -Wextra -Wpedantic -Wno-unknown-pragmas -Wno-unused-parameter -Iinclude -O3)

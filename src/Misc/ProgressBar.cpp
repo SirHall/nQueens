@@ -27,13 +27,10 @@ bool PrintProgress(
 
     if(GetTime(*clock_lastPrint) > (1 / printRate)){ 
         *clock_lastPrint = steady_clock::now();
-        // if(layers > 0)
         PrintBar((double)currentBoards / targetBoards, barLength);
-        // else
-            // std::cout << "\r    ";
         std::cout << " - "
             <<  "(depth=" << currentDepth + 1 << ") "
-            << solutions << '/' << currentBoards 
+            << solutions << '/' << currentBoards << '/' << targetBoards
             << "    " << std::fixed << std::setprecision(2) 
             << std::round(GetTime(clock_start) * 100) / 100
             << "    "

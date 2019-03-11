@@ -24,7 +24,8 @@ bool Queen::DoesCollide(u_char x, u_char y){
     //Must cast to int so we can have negative values
     int xDiff = (int)x - (int)this->x;
     int yDiff = (int)y - (int)this->y;
-    return xDiff == 0 || yDiff == 0 || (std::abs(xDiff) == std::abs(yDiff));
+    return xDiff == 0 || yDiff == 0 || 
+        (xDiff == yDiff) || (xDiff == -yDiff); //Faster than std::abs()
 }
 
 bool Queen::DoesCollide(Queen other){

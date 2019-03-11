@@ -143,11 +143,12 @@ void Board::MoveQueen(u_char index, Dir direction){
 
 #pragma region Operator Overloads
 
-bool Board::operator==(Board *other){
+bool Board::operator==(Board other){
     //Check our dimensions, and queen count are equal
-    if(x == other->x && y == other->y && queens.size() == other->queens.size()){
+    if(x == other.x && y == other.y && queens.size() == other.queens.size()){
         for(u_char i = 0; i < queens.size(); i++){
-            if(queens[i] != other->queens[i]) //Queens have different positions
+            //Queens have different positions
+            if(other.QueenAtPos(queens[i].GetX(), queens[i].GetY()) == NULL) 
                 return false;
         }
         return true; //Everything is the same

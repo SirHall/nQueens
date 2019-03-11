@@ -36,7 +36,7 @@ class Board{
 
         #pragma region Operator Overloads
 
-        bool operator==(Board *other);
+        bool operator==(Board other);
 
         #pragma endregion
 };

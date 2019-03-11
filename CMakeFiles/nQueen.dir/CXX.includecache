@@ -29,6 +29,10 @@ sstream
 -
 cmath
 -
+vector
+-
+queue
+-
 
 include/Board.hpp
 vector
@@ -43,8 +47,14 @@ include/Dir.hpp
 include/Dir.hpp
 
 include/MathMore.hpp
+chrono
+-
 
 include/ProgressBar.hpp
+chrono
+-
+cmath
+-
 
 include/Queen.hpp
 memory

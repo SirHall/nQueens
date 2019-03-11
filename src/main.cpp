@@ -9,14 +9,10 @@
 #include <chrono>
 #include <sstream>
 #include <cmath>
+#include <vector>
+#include <queue>
 using namespace std::chrono;
 
-double GetTime(steady_clock::time_point start){
-    auto now = steady_clock::now();
-    steady_clock::duration duration = now - start;
-    return double(duration.count()) * 
-        steady_clock::period::num / steady_clock::period::den;
-}
 
 int main(int argc, char* argv[]){
 
@@ -31,7 +27,7 @@ int main(int argc, char* argv[]){
     std::vector<Queen> queens = std::vector<Queen>();
 
     for(int i = 0; i < size; i++)
-        queens.push_back(Queen(i, 0));
+        queens.push_back(Queen(i, i));
 
     std::shared_ptr<Board> initBoard (new Board(size, size, queens));
 
@@ -40,7 +36,20 @@ int main(int argc, char* argv[]){
     
     std::cout << "\n\t---CHILDREN---\n\n";
 
-    auto boards = std::shared_ptr<std::vector<std::shared_ptr<Board>>>(
+    u_long expectedBoards = 
+        combi(size * size, size);
+
+    //Explored
+    auto explored = std::shared_ptr<std::vector<std::shared_ptr<Board>>>(
+        new std::vector<std::shared_ptr<Board>>()
+    );
+
+    auto frontier = std::shared_ptr<std::queue<std::shared_ptr<Board>>>(
+        new std::queue<std::shared_ptr<Board>>()
+    );
+
+    //Temporarily stores the immediate children of the frontier
+    auto fronterChildren = std::shared_ptr<std::vector<std::shared_ptr<Board>>>(
         new std::vector<std::shared_ptr<Board>>()
     );
 
@@ -48,8 +57,9 @@ int main(int argc, char* argv[]){
         new std::vector<std::shared_ptr<Board>>()
     );
 
+
     u_int previousSize = 0;
-    boards->push_back(initBoard);
+    frontier->push(initBoard);
 
     auto clock_start = steady_clock::now();
     auto clock_lastPrint = steady_clock::now();
@@ -57,58 +67,66 @@ int main(int argc, char* argv[]){
     #pragma region Search Space
 
     for(long i = 0; i < layers || layers < 0; i++){
-
-        std::shared_ptr<std::vector<std::shared_ptr<Board>>> children
-            (new std::vector<std::shared_ptr<Board>>());
-        
-        for(auto board : *boards){ //For all found boards
-            auto tmpChildren = board->GenChildBoards(); //Generate its children
-            for(auto childBoard : *tmpChildren)
-                children->push_back(childBoard);
-        }
-
-        for(auto childBoard : *children){ //Ensure it's a valid board
-
-        #pragma region Printing
-
-        if(GetTime(clock_lastPrint) > (1/11.0)){ //Update the display at 30fps
-            clock_lastPrint = steady_clock::now();
-            if(layers > 0)
-                PrintProgress((double)i / (layers - 1), 50);
-            else
-                std::cout << "\r    ";
-            std::cout << " - "
-                <<  "(n=" << i + 1 << ") "
-                << solutions->size() << '/' << boards->size() 
-                << "    " << std::round(GetTime(clock_start) * 100) / 100
-                << "    "
-                << std::flush;
-        }
-
-        #pragma endregion
-
+        while(!frontier->empty()){
+            std::shared_ptr<Board> frontierBoard = frontier->front();
+            frontier->pop();
+            
+            //Ensure that this is a new board
             bool alreadyExists = false;
-            for(auto board : *boards) //This board already exists
-                if(*childBoard == board.get()){
+            for(auto exploredBoard : *explored){ //Only add new boards
+                if(*frontierBoard == *exploredBoard){
                     alreadyExists = true;
-                    break;}
-            if(!alreadyExists){ //If this is a unique board
-                boards->push_back(childBoard); //Push to main boards
-                if(boards->size() == boards->capacity()) //If full...
-                    boards->reserve(boards->capacity() * 2); //double capacity
-                if(!childBoard->Collisions(NULL)) //If board has no collisions
-                    solutions->push_back(childBoard); //Then add to solutions
+                    break;
+                }
             }
+            if(!alreadyExists){
+                //Generate children
+                auto boardChildren = frontierBoard->GenChildBoards();
+                for(auto childBoard : *boardChildren)
+                    fronterChildren->push_back(childBoard);
+
+                //Add it to the explored set
+                explored->push_back(frontierBoard);
+                if(!frontierBoard->Collisions(NULL))
+                    solutions->push_back(frontierBoard);
+            }
+
+            PrintProgress(
+                clock_start, &clock_lastPrint,
+                30.0, solutions->size(), 
+                explored->size(),// + frontier->size() + fronterChildren->size(),
+                expectedBoards, 25, i
+            );
+
         }
-        if(previousSize == boards->size())//We have scanned all possiblities
-            break; //Stop searching
-        previousSize = boards->size(); //How many boards we found this iteration 
+
+        // u_long 
+        //     exploredSize = explored->size(),
+        //     frontierSize = frontier->size(),
+        //     frontierChildrenSize = fronterChildren->size();
+
+        // int b = 1;
+
+        if(fronterChildren->size() == 0)
+            break; //We didn't find any new boards
+
+        for(auto frontierChild : *fronterChildren)
+            frontier->push(frontierChild);
+        fronterChildren->clear();
+
+        // exploredSize = explored->size();
+        // frontierSize = frontier->size();
+        // frontierChildrenSize = fronterChildren->size();
+
+        // int a = 1;
+   
     }
+
     std::cout << "\n"; //Jump to new line from progress bar
 
     #pragma endregion
 
-    std::cout << "\tBoards Discovered: " << boards->size() << '\n';
+    std::cout << "\tUnique Boards Discovered: " << explored->size() << '\n';
     std::cout << "\n\n\t---SOLUTIONS---\n";
     std::cout << "\t " << GetTime(clock_start) << " seconds\n";
     std::cout << "\tFound " << solutions->size() << " solutions:\n\n";
@@ -128,3 +146,4 @@ int main(int argc, char* argv[]){
     
 
 }
+

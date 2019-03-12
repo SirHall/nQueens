@@ -41,7 +41,10 @@ unsigned long combi(int n,int k)
 }
 
 double GetTime(steady_clock::time_point start){
-    auto now = steady_clock::now();
+    return GetTime(start, steady_clock::now());
+}
+
+double GetTime(steady_clock::time_point start, steady_clock::time_point now){
     steady_clock::duration duration = now - start;
     return double(duration.count()) * 
         steady_clock::period::num / steady_clock::period::den;

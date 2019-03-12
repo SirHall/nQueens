@@ -15,5 +15,7 @@ unsigned long Factorial(unsigned long val);
 unsigned long combi(int n,int k);
 
 double GetTime(steady_clock::time_point start);
+double GetTime(steady_clock::time_point start, steady_clock::time_point now);
+
 
 #endif

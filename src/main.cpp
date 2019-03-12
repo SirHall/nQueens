@@ -58,7 +58,6 @@ int main(int argc, char* argv[]){
     );
 
 
-    u_int previousSize = 0;
     frontier->push(initBoard);
 
     auto clock_start = steady_clock::now();
@@ -100,42 +99,30 @@ int main(int argc, char* argv[]){
 
         }
 
-        // u_long 
-        //     exploredSize = explored->size(),
-        //     frontierSize = frontier->size(),
-        //     frontierChildrenSize = fronterChildren->size();
-
-        // int b = 1;
-
         if(fronterChildren->size() == 0)
             break; //We didn't find any new boards
 
         for(auto frontierChild : *fronterChildren)
             frontier->push(frontierChild);
         fronterChildren->clear();
-
-        // exploredSize = explored->size();
-        // frontierSize = frontier->size();
-        // frontierChildrenSize = fronterChildren->size();
-
-        // int a = 1;
-   
     }
 
     std::cout << "\n"; //Jump to new line from progress bar
 
     #pragma endregion
 
+    //Print out answers
     std::cout << "\tUnique Boards Discovered: " << explored->size() << '\n';
     std::cout << "\n\n\t---SOLUTIONS---\n";
     std::cout << "\t " << GetTime(clock_start) << " seconds\n";
     std::cout << "\tFound " << solutions->size() << " solutions:\n\n";
     
-    if(solutions->size() > 0){
+    //Only offer to print solutions if we actually found any
+    if(solutions->size() > 0){ 
         std::string answer = "";
         std::cout << "\tDisplay solutions?(y/n): ";
         std::cin >> answer;
-        if(answer == "y"){
+        if(answer == "y" || answer == "Y"){
             std::cout << '\n';
             for(auto solution : *solutions){
                 solution->Print();

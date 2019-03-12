@@ -25,14 +25,16 @@ bool PrintProgress(
     u_long solutions, u_long currentBoards, u_long targetBoards,
     u_char barLength, u_long currentDepth){
 
-    if(GetTime(*clock_lastPrint) > (1 / printRate)){ 
-        *clock_lastPrint = steady_clock::now();
+    auto now = steady_clock::now();
+
+    if(GetTime(*clock_lastPrint, now) > (1 / printRate)){ 
+        *clock_lastPrint = now;
         PrintBar((double)currentBoards / targetBoards, barLength);
         std::cout << " - "
             <<  "(depth=" << currentDepth + 1 << ") "
             << solutions << '/' << currentBoards << '/' << targetBoards
             << "    " << std::fixed << std::setprecision(2) 
-            << std::round(GetTime(clock_start) * 100) / 100
+            << std::round(GetTime(clock_start, now) * 100) / 100
             << "    "
             << std::flush;
         return true; //Return true as we have printed

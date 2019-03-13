@@ -6,14 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/sirhall/Documents/GitRepos/nQueens/src/board/Board.cpp
-Board.hpp
-/home/sirhall/Documents/GitRepos/nQueens/src/board/Board.hpp
-iostream
--
-algorithm
--
-
 /home/sirhall/Documents/GitRepos/nQueens/src/main.cpp
 iostream
 -
@@ -45,11 +37,7 @@ unordered_set
 -
 functional
 -
-
-/home/sirhall/Documents/GitRepos/nQueens/src/queen/Queen.cpp
-Queen.hpp
-/home/sirhall/Documents/GitRepos/nQueens/src/queen/Queen.hpp
-cstdlib
+string.h
 -
 
 include/Board.hpp

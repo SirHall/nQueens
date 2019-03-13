@@ -1,5 +1,6 @@
 #include "MathMore.hpp"
 #include <chrono>
+#include <cmath>
 using namespace std::chrono;
 
 double Remap(
@@ -17,27 +18,15 @@ unsigned long Factorial(unsigned long val){
     return fact;
 }
 
-//nCr, taken from: https://stackoverflow.com/a/11809562
-unsigned long combi(int n,int k)
-{
-    long ans=1;
-    k=k>n-k?n-k:k;
-    int j=1;
-    for(;j<=k;j++,n--)
-    {
-        if(n%j==0)
-        {
-            ans*=n/j;
-        }else
-        if(ans%j==0)
-        {
-            ans=ans/j*n;
-        }else
-        {
-            ans=(ans*n)/j;
-        }
+unsigned long SearchSpace(u_char n){
+    unsigned long searchSpace = 1;
+    for(u_char i = 1; i <= n; i++){ //The power
+        unsigned long add = n;
+        for(u_char mul = 1; mul < i; mul++)
+            add *= n;
+        searchSpace += add;
     }
-    return ans;
+    return searchSpace;
 }
 
 double GetTime(steady_clock::time_point start){

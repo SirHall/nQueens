@@ -80,22 +80,22 @@ std::shared_ptr<std::vector<std::shared_ptr<Board>>> Board::GenChildBoards(){
     for(u_char index = 0; index < queens.size(); index++){ //All queens
         Queen queen = queens[index];
     
-        for(signed char xDiff = -1; xDiff <= 1; xDiff++){ //All x moves
-            for(signed char yDiff = -1; yDiff <= 1; yDiff++){ //All y moves
-                if(yDiff == 0 && xDiff == 0) 
+        for(signed char xDiff = 1; xDiff <= 1; xDiff++){ //All x moves
+            // for(signed char yDiff = -1; yDiff <= 1; yDiff++){ //All y moves
+                if(/*yDiff == 0 && */xDiff == 0)
                     continue;
                 u_char 
-                    checkX = queen.GetX() + xDiff,
-                    checkY = queen.GetY() + yDiff; 
+                    checkX = queen.GetX() + xDiff;//,
+                    // checkY = queen.GetY() + yDiff; 
                 if(
-                    checkX < x && checkY < y && 
-                    QueenAtPos(checkX, checkY) == NULL
+                    checkX < x && /*checkY < y &&*/ 
+                    QueenAtPos(checkX, queen.GetY()) == NULL
                 ){//Generate board
                     auto newBoard = std::shared_ptr<Board>(DeepCopy());
-                    newBoard->MoveQueen(index, checkX, checkY);
+                    newBoard->MoveQueen(index, checkX, queen.GetY());
                     childBoards->push_back(newBoard);
                 }
-            }
+            // }
         }
     }
 
@@ -160,6 +160,14 @@ bool Board::operator==(Board other){
 
 void Board::Print(){
     Print('\n', '\t', 'O', 'X', ' ', '#');
+}
+
+u_char Board::QueenSize() const{
+    return queens.size();
+}
+
+size_t Board::QueenHash(u_char index) const{
+    return queens[index].PosSingle();
 }
 
 void Board::Print(

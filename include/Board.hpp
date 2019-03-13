@@ -5,6 +5,7 @@
 #include <memory>
 #include "Queen.hpp"
 #include "Dir.hpp"
+#include <functional>
 
 class Board{
     private:
@@ -33,6 +34,10 @@ class Board{
 
         void MoveQueen(u_char index, u_char newX, u_char newY);
         void MoveQueen(u_char index, Dir direction);
+
+        u_char QueenSize() const;
+
+        size_t QueenHash(u_char index) const;
 
         #pragma region Operator Overloads
 

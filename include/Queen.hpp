@@ -18,6 +18,8 @@ struct Queen{
         bool DoesCollide(Queen other);
         bool DoesCollide(u_char x, u_char y);
 
+        unsigned short PosSingle() const;
+
         #pragma region Operator Overloads
 
         bool operator ==(Queen other);

@@ -6,6 +6,14 @@
 
 #IncludeRegexTransform: 
 
+/home/sirhall/Documents/GitRepos/nQueens/src/board/Board.cpp
+Board.hpp
+/home/sirhall/Documents/GitRepos/nQueens/src/board/Board.hpp
+iostream
+-
+algorithm
+-
+
 /home/sirhall/Documents/GitRepos/nQueens/src/main.cpp
 iostream
 -
@@ -33,6 +41,16 @@ vector
 -
 queue
 -
+unordered_set
+-
+functional
+-
+
+/home/sirhall/Documents/GitRepos/nQueens/src/queen/Queen.cpp
+Queen.hpp
+/home/sirhall/Documents/GitRepos/nQueens/src/queen/Queen.hpp
+cstdlib
+-
 
 include/Board.hpp
 vector
@@ -43,11 +61,15 @@ Queen.hpp
 include/Queen.hpp
 Dir.hpp
 include/Dir.hpp
+functional
+-
 
 include/Dir.hpp
 
 include/MathMore.hpp
 chrono
+-
+cmath
 -
 
 include/ProgressBar.hpp

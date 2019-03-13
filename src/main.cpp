@@ -11,6 +11,8 @@
 #include <cmath>
 #include <vector>
 #include <queue>
+#include <unordered_set>
+#include <functional>
 using namespace std::chrono;
 
 
@@ -27,7 +29,7 @@ int main(int argc, char* argv[]){
     std::vector<Queen> queens = std::vector<Queen>();
 
     for(int i = 0; i < size; i++)
-        queens.push_back(Queen(i, i));
+        queens.push_back(Queen(0, i));
 
     std::shared_ptr<Board> initBoard (new Board(size, size, queens));
 
@@ -37,7 +39,11 @@ int main(int argc, char* argv[]){
     std::cout << "\n\t---CHILDREN---\n\n";
 
     u_long expectedBoards = 
-        combi(size * size, size);
+        SearchSpace(size);
+        // combi(size * size, size);
+
+    //NewExplored
+    auto newExplored = std::unordered_set<Board>();
 
     //Explored
     auto explored = std::shared_ptr<std::vector<std::shared_ptr<Board>>>(

@@ -32,6 +32,10 @@ bool Queen::DoesCollide(Queen other){
     return DoesCollide(other.x, other.y);
 }
 
+unsigned short Queen::PosSingle() const{
+    return x | (y << 8);
+}
+
 bool Queen::operator==(Queen other){
     return x == other.x && y == other.y;
 }

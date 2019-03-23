@@ -1,3 +1,0 @@
-/home/sirhall/Documents/GitRepos/nQueens/CMakeFiles/rebuild_cache.dir
-/home/sirhall/Documents/GitRepos/nQueens/CMakeFiles/nQueen.dir
-/home/sirhall/Documents/GitRepos/nQueens/CMakeFiles/edit_cache.dir

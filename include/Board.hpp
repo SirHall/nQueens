@@ -24,13 +24,14 @@ class Board{
         Board* DeepCopy();
         bool Collisions(u_char *count);
         bool Collisions(Queen queen, u_char *count);
+        
         void Print(
             char sep, char indent,
             char aliveQueen, char deadQueen, 
             char whiteSquare, char blackSquare);
         void Print();
         Queen* QueenAtPos(u_char x, u_char y);
-        std::shared_ptr<std::vector<std::shared_ptr<Board>>> GenChildBoards();
+        std::unique_ptr<std::vector<std::unique_ptr<Board>>> GenChildBoards();
 
         void MoveQueen(u_char index, u_char newX, u_char newY);
         void MoveQueen(u_char index, Dir direction);
@@ -38,6 +39,12 @@ class Board{
         u_char QueenSize() const;
 
         size_t QueenHash(u_char index) const;
+
+        bool Increment();
+
+        static bool AlreadyExists(
+            std::unique_ptr<Board> &board, 
+            std::unique_ptr<std::vector<std::unique_ptr<Board>>> &collection);
 
         #pragma region Operator Overloads
 

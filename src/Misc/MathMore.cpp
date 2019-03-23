@@ -18,7 +18,14 @@ unsigned long Factorial(unsigned long val){
     return fact;
 }
 
-unsigned long SearchSpace(u_char n){
+unsigned long Pow(unsigned long n){
+    unsigned long finalVal = 1;
+    for(unsigned long i = 1; i <= n; i++)
+        finalVal *= n;
+    return finalVal;
+}
+
+/*unsigned long SearchSpace(u_char n){
     unsigned long searchSpace = 1;
     for(u_char i = 1; i <= n; i++){ //The power
         unsigned long add = n;
@@ -27,7 +34,7 @@ unsigned long SearchSpace(u_char n){
         searchSpace += add;
     }
     return searchSpace;
-}
+}*/
 
 double GetTime(steady_clock::time_point start){
     return GetTime(start, steady_clock::now());

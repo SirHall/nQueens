@@ -1,10 +1,9 @@
 #include "ProgressBar.hpp"
-
 #include "MathMore.hpp"
 #include <iostream>
+#include <iomanip>
 #include <string>
 #include <cmath>
-#include <iomanip>
 
 void PrintBar(double progress, unsigned char barLength){
     std::string bar = "";
@@ -17,27 +16,39 @@ void PrintBar(double progress, unsigned char barLength){
     std::cout << std::flush;
 }
 
-
 bool PrintProgress(
     steady_clock::time_point clock_start, 
     steady_clock::time_point *clock_lastPrint,
-    double printRate,
-    u_long solutions, u_long currentBoards, u_long targetBoards,
+    double printRate, double &timeLeft,
+    u_long solutions, u_long currentBoards, 
+    u_long &lastBoards, u_long targetBoards,
     u_char barLength, u_long currentDepth){
 
     auto now = steady_clock::now();
 
     if(GetTime(*clock_lastPrint, now) > (1 / printRate)){ 
-        *clock_lastPrint = now;
         PrintBar((double)currentBoards / targetBoards, barLength);
+        
+        timeLeft = 
+            ((GetTime(clock_start, now) / currentBoards) * targetBoards)
+                - GetTime(clock_start, now);
+        
         std::cout << " - "
             <<  "(depth=" << currentDepth + 1 << ") "
             << solutions << '/' << currentBoards << '/' << targetBoards
             << "    " << std::fixed << std::setprecision(2) 
             << std::round(GetTime(clock_start, now) * 100) / 100
+            << "    " << timeLeft //Time left
             << "    "
             << std::flush;
+        
+        *clock_lastPrint = now;
+        lastBoards = currentBoards;
         return true; //Return true as we have printed
     }
     return false; //We did not print
+}
+
+double Lerp(double a, double b, double t){
+    return ((b - a) * t) + a;
 }

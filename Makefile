@@ -258,6 +258,87 @@ src/queen/Queen.cpp.s:
 	$(MAKE) -f CMakeFiles/nQueen.dir/build.make CMakeFiles/nQueen.dir/src/queen/Queen.cpp.s
 .PHONY : src/queen/Queen.cpp.s
 
+src/search_results/SearchResults.o: src/search_results/SearchResults.cpp.o
+
+.PHONY : src/search_results/SearchResults.o
+
+# target to build an object file
+src/search_results/SearchResults.cpp.o:
+	$(MAKE) -f CMakeFiles/nQueen.dir/build.make CMakeFiles/nQueen.dir/src/search_results/SearchResults.cpp.o
+.PHONY : src/search_results/SearchResults.cpp.o
+
+src/search_results/SearchResults.i: src/search_results/SearchResults.cpp.i
+
+.PHONY : src/search_results/SearchResults.i
+
+# target to preprocess a source file
+src/search_results/SearchResults.cpp.i:
+	$(MAKE) -f CMakeFiles/nQueen.dir/build.make CMakeFiles/nQueen.dir/src/search_results/SearchResults.cpp.i
+.PHONY : src/search_results/SearchResults.cpp.i
+
+src/search_results/SearchResults.s: src/search_results/SearchResults.cpp.s
+
+.PHONY : src/search_results/SearchResults.s
+
+# target to generate assembly for a file
+src/search_results/SearchResults.cpp.s:
+	$(MAKE) -f CMakeFiles/nQueen.dir/build.make CMakeFiles/nQueen.dir/src/search_results/SearchResults.cpp.s
+.PHONY : src/search_results/SearchResults.cpp.s
+
+src/solvers/Solver_BFS.o: src/solvers/Solver_BFS.cpp.o
+
+.PHONY : src/solvers/Solver_BFS.o
+
+# target to build an object file
+src/solvers/Solver_BFS.cpp.o:
+	$(MAKE) -f CMakeFiles/nQueen.dir/build.make CMakeFiles/nQueen.dir/src/solvers/Solver_BFS.cpp.o
+.PHONY : src/solvers/Solver_BFS.cpp.o
+
+src/solvers/Solver_BFS.i: src/solvers/Solver_BFS.cpp.i
+
+.PHONY : src/solvers/Solver_BFS.i
+
+# target to preprocess a source file
+src/solvers/Solver_BFS.cpp.i:
+	$(MAKE) -f CMakeFiles/nQueen.dir/build.make CMakeFiles/nQueen.dir/src/solvers/Solver_BFS.cpp.i
+.PHONY : src/solvers/Solver_BFS.cpp.i
+
+src/solvers/Solver_BFS.s: src/solvers/Solver_BFS.cpp.s
+
+.PHONY : src/solvers/Solver_BFS.s
+
+# target to generate assembly for a file
+src/solvers/Solver_BFS.cpp.s:
+	$(MAKE) -f CMakeFiles/nQueen.dir/build.make CMakeFiles/nQueen.dir/src/solvers/Solver_BFS.cpp.s
+.PHONY : src/solvers/Solver_BFS.cpp.s
+
+src/solvers/Solver_Base.o: src/solvers/Solver_Base.cpp.o
+
+.PHONY : src/solvers/Solver_Base.o
+
+# target to build an object file
+src/solvers/Solver_Base.cpp.o:
+	$(MAKE) -f CMakeFiles/nQueen.dir/build.make CMakeFiles/nQueen.dir/src/solvers/Solver_Base.cpp.o
+.PHONY : src/solvers/Solver_Base.cpp.o
+
+src/solvers/Solver_Base.i: src/solvers/Solver_Base.cpp.i
+
+.PHONY : src/solvers/Solver_Base.i
+
+# target to preprocess a source file
+src/solvers/Solver_Base.cpp.i:
+	$(MAKE) -f CMakeFiles/nQueen.dir/build.make CMakeFiles/nQueen.dir/src/solvers/Solver_Base.cpp.i
+.PHONY : src/solvers/Solver_Base.cpp.i
+
+src/solvers/Solver_Base.s: src/solvers/Solver_Base.cpp.s
+
+.PHONY : src/solvers/Solver_Base.s
+
+# target to generate assembly for a file
+src/solvers/Solver_Base.cpp.s:
+	$(MAKE) -f CMakeFiles/nQueen.dir/build.make CMakeFiles/nQueen.dir/src/solvers/Solver_Base.cpp.s
+.PHONY : src/solvers/Solver_Base.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -282,6 +363,15 @@ help:
 	@echo "... src/queen/Queen.o"
 	@echo "... src/queen/Queen.i"
 	@echo "... src/queen/Queen.s"
+	@echo "... src/search_results/SearchResults.o"
+	@echo "... src/search_results/SearchResults.i"
+	@echo "... src/search_results/SearchResults.s"
+	@echo "... src/solvers/Solver_BFS.o"
+	@echo "... src/solvers/Solver_BFS.i"
+	@echo "... src/solvers/Solver_BFS.s"
+	@echo "... src/solvers/Solver_Base.o"
+	@echo "... src/solvers/Solver_Base.i"
+	@echo "... src/solvers/Solver_Base.s"
 .PHONY : help
 
 

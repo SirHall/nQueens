@@ -19,7 +19,34 @@ CMakeFiles/nQueen.dir/src/main.cpp.o: include/Dir.hpp
 CMakeFiles/nQueen.dir/src/main.cpp.o: include/MathMore.hpp
 CMakeFiles/nQueen.dir/src/main.cpp.o: include/ProgressBar.hpp
 CMakeFiles/nQueen.dir/src/main.cpp.o: include/Queen.hpp
+CMakeFiles/nQueen.dir/src/main.cpp.o: include/SearchResults.hpp
+CMakeFiles/nQueen.dir/src/main.cpp.o: include/Solver_BFS.hpp
+CMakeFiles/nQueen.dir/src/main.cpp.o: include/Solver_Base.hpp
 
 CMakeFiles/nQueen.dir/src/queen/Queen.cpp.o: src/queen/Queen.cpp
 CMakeFiles/nQueen.dir/src/queen/Queen.cpp.o: include/Queen.hpp
+
+CMakeFiles/nQueen.dir/src/search_results/SearchResults.cpp.o: src/search_results/SearchResults.cpp
+CMakeFiles/nQueen.dir/src/search_results/SearchResults.cpp.o: include/Board.hpp
+CMakeFiles/nQueen.dir/src/search_results/SearchResults.cpp.o: include/Dir.hpp
+CMakeFiles/nQueen.dir/src/search_results/SearchResults.cpp.o: include/MathMore.hpp
+CMakeFiles/nQueen.dir/src/search_results/SearchResults.cpp.o: include/Queen.hpp
+CMakeFiles/nQueen.dir/src/search_results/SearchResults.cpp.o: include/SearchResults.hpp
+
+CMakeFiles/nQueen.dir/src/solvers/Solver_BFS.cpp.o: src/solvers/Solver_BFS.cpp
+CMakeFiles/nQueen.dir/src/solvers/Solver_BFS.cpp.o: include/Board.hpp
+CMakeFiles/nQueen.dir/src/solvers/Solver_BFS.cpp.o: include/Dir.hpp
+CMakeFiles/nQueen.dir/src/solvers/Solver_BFS.cpp.o: include/MathMore.hpp
+CMakeFiles/nQueen.dir/src/solvers/Solver_BFS.cpp.o: include/ProgressBar.hpp
+CMakeFiles/nQueen.dir/src/solvers/Solver_BFS.cpp.o: include/Queen.hpp
+CMakeFiles/nQueen.dir/src/solvers/Solver_BFS.cpp.o: include/SearchResults.hpp
+CMakeFiles/nQueen.dir/src/solvers/Solver_BFS.cpp.o: include/Solver_BFS.hpp
+CMakeFiles/nQueen.dir/src/solvers/Solver_BFS.cpp.o: include/Solver_Base.hpp
+
+CMakeFiles/nQueen.dir/src/solvers/Solver_Base.cpp.o: src/solvers/Solver_Base.cpp
+CMakeFiles/nQueen.dir/src/solvers/Solver_Base.cpp.o: include/Board.hpp
+CMakeFiles/nQueen.dir/src/solvers/Solver_Base.cpp.o: include/Dir.hpp
+CMakeFiles/nQueen.dir/src/solvers/Solver_Base.cpp.o: include/Queen.hpp
+CMakeFiles/nQueen.dir/src/solvers/Solver_Base.cpp.o: include/SearchResults.hpp
+CMakeFiles/nQueen.dir/src/solvers/Solver_Base.cpp.o: include/Solver_Base.hpp
 

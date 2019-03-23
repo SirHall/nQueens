@@ -4,6 +4,9 @@ file(REMOVE_RECURSE
   "CMakeFiles/nQueen.dir/src/board/Board.cpp.o"
   "CMakeFiles/nQueen.dir/src/main.cpp.o"
   "CMakeFiles/nQueen.dir/src/queen/Queen.cpp.o"
+  "CMakeFiles/nQueen.dir/src/search_results/SearchResults.cpp.o"
+  "CMakeFiles/nQueen.dir/src/solvers/Solver_BFS.cpp.o"
+  "CMakeFiles/nQueen.dir/src/solvers/Solver_Base.cpp.o"
   "nQueen.pdb"
   "nQueen"
 )

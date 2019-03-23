@@ -72,15 +72,15 @@ Board* Board::DeepCopy(){
     return newBoard;
 }
 
-std::shared_ptr<std::vector<std::shared_ptr<Board>>> Board::GenChildBoards(){
+std::unique_ptr<std::vector<std::unique_ptr<Board>>> Board::GenChildBoards(){
     
-    std::shared_ptr<std::vector<std::shared_ptr<Board>>>
-        childBoards (new std::vector<std::shared_ptr<Board>>); 
+    std::unique_ptr<std::vector<std::unique_ptr<Board>>>
+        childBoards (new std::vector<std::unique_ptr<Board>>); 
     
     for(u_char index = 0; index < queens.size(); index++){ //All queens
         Queen queen = queens[index];
     
-        for(signed char xDiff = 1; xDiff <= 1; xDiff++){ //All x moves
+        for(signed char xDiff = -1; xDiff <= 1; xDiff++){ //All x moves
             // for(signed char yDiff = -1; yDiff <= 1; yDiff++){ //All y moves
                 if(/*yDiff == 0 && */xDiff == 0)
                     continue;
@@ -91,15 +91,15 @@ std::shared_ptr<std::vector<std::shared_ptr<Board>>> Board::GenChildBoards(){
                     checkX < x && /*checkY < y &&*/ 
                     QueenAtPos(checkX, queen.GetY()) == NULL
                 ){//Generate board
-                    auto newBoard = std::shared_ptr<Board>(DeepCopy());
+                    auto newBoard = std::unique_ptr<Board>(DeepCopy());
                     newBoard->MoveQueen(index, checkX, queen.GetY());
-                    childBoards->push_back(newBoard);
+                    childBoards->push_back(std::move(newBoard));
                 }
             // }
         }
     }
 
-    return childBoards;
+    return std::move(childBoards);
 }
 
 void Board::MoveQueen(u_char index, u_char newX, u_char newY){
@@ -141,6 +141,16 @@ void Board::MoveQueen(u_char index, Dir direction){
 
 }
 
+bool Board::AlreadyExists(
+    std::unique_ptr<Board> &board, 
+    std::unique_ptr<std::vector<std::unique_ptr<Board>>> &collection){
+    
+    for(u_long i = 0; i < collection->size(); i++)
+        if(*board == *collection->at(i).get())
+            return true;
+    return false;
+}
+
 #pragma region Operator Overloads
 
 bool Board::operator==(Board other){
@@ -168,6 +178,21 @@ u_char Board::QueenSize() const{
 
 size_t Board::QueenHash(u_char index) const{
     return queens[index].PosSingle();
+}
+
+bool Board::Increment(){
+    for(u_char i = 0; i < queens.size(); i++){
+        if(queens[i].GetX() < x - 1){
+            queens[i].SetX(queens[i].GetX() + 1);
+            break;
+        }else{
+            if(i == queens.size() - 1) //It's the last queen and it can't move
+                return false; //We have finished the board
+            queens[i].SetX(0); //Move back to start
+            //Move next queen up
+        }
+    }
+    return true;
 }
 
 void Board::Print(

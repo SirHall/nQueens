@@ -122,13 +122,55 @@ CMakeFiles/nQueen.dir/src/queen/Queen.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/nQueen.dir/src/queen/Queen.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sirhall/Documents/GitRepos/nQueens/src/queen/Queen.cpp -o CMakeFiles/nQueen.dir/src/queen/Queen.cpp.s
 
+CMakeFiles/nQueen.dir/src/search_results/SearchResults.cpp.o: CMakeFiles/nQueen.dir/flags.make
+CMakeFiles/nQueen.dir/src/search_results/SearchResults.cpp.o: src/search_results/SearchResults.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sirhall/Documents/GitRepos/nQueens/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/nQueen.dir/src/search_results/SearchResults.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/nQueen.dir/src/search_results/SearchResults.cpp.o -c /home/sirhall/Documents/GitRepos/nQueens/src/search_results/SearchResults.cpp
+
+CMakeFiles/nQueen.dir/src/search_results/SearchResults.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/nQueen.dir/src/search_results/SearchResults.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sirhall/Documents/GitRepos/nQueens/src/search_results/SearchResults.cpp > CMakeFiles/nQueen.dir/src/search_results/SearchResults.cpp.i
+
+CMakeFiles/nQueen.dir/src/search_results/SearchResults.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/nQueen.dir/src/search_results/SearchResults.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sirhall/Documents/GitRepos/nQueens/src/search_results/SearchResults.cpp -o CMakeFiles/nQueen.dir/src/search_results/SearchResults.cpp.s
+
+CMakeFiles/nQueen.dir/src/solvers/Solver_BFS.cpp.o: CMakeFiles/nQueen.dir/flags.make
+CMakeFiles/nQueen.dir/src/solvers/Solver_BFS.cpp.o: src/solvers/Solver_BFS.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sirhall/Documents/GitRepos/nQueens/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/nQueen.dir/src/solvers/Solver_BFS.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/nQueen.dir/src/solvers/Solver_BFS.cpp.o -c /home/sirhall/Documents/GitRepos/nQueens/src/solvers/Solver_BFS.cpp
+
+CMakeFiles/nQueen.dir/src/solvers/Solver_BFS.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/nQueen.dir/src/solvers/Solver_BFS.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sirhall/Documents/GitRepos/nQueens/src/solvers/Solver_BFS.cpp > CMakeFiles/nQueen.dir/src/solvers/Solver_BFS.cpp.i
+
+CMakeFiles/nQueen.dir/src/solvers/Solver_BFS.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/nQueen.dir/src/solvers/Solver_BFS.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sirhall/Documents/GitRepos/nQueens/src/solvers/Solver_BFS.cpp -o CMakeFiles/nQueen.dir/src/solvers/Solver_BFS.cpp.s
+
+CMakeFiles/nQueen.dir/src/solvers/Solver_Base.cpp.o: CMakeFiles/nQueen.dir/flags.make
+CMakeFiles/nQueen.dir/src/solvers/Solver_Base.cpp.o: src/solvers/Solver_Base.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sirhall/Documents/GitRepos/nQueens/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/nQueen.dir/src/solvers/Solver_Base.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/nQueen.dir/src/solvers/Solver_Base.cpp.o -c /home/sirhall/Documents/GitRepos/nQueens/src/solvers/Solver_Base.cpp
+
+CMakeFiles/nQueen.dir/src/solvers/Solver_Base.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/nQueen.dir/src/solvers/Solver_Base.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sirhall/Documents/GitRepos/nQueens/src/solvers/Solver_Base.cpp > CMakeFiles/nQueen.dir/src/solvers/Solver_Base.cpp.i
+
+CMakeFiles/nQueen.dir/src/solvers/Solver_Base.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/nQueen.dir/src/solvers/Solver_Base.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sirhall/Documents/GitRepos/nQueens/src/solvers/Solver_Base.cpp -o CMakeFiles/nQueen.dir/src/solvers/Solver_Base.cpp.s
+
 # Object files for target nQueen
 nQueen_OBJECTS = \
 "CMakeFiles/nQueen.dir/src/Misc/MathMore.cpp.o" \
 "CMakeFiles/nQueen.dir/src/Misc/ProgressBar.cpp.o" \
 "CMakeFiles/nQueen.dir/src/board/Board.cpp.o" \
 "CMakeFiles/nQueen.dir/src/main.cpp.o" \
-"CMakeFiles/nQueen.dir/src/queen/Queen.cpp.o"
+"CMakeFiles/nQueen.dir/src/queen/Queen.cpp.o" \
+"CMakeFiles/nQueen.dir/src/search_results/SearchResults.cpp.o" \
+"CMakeFiles/nQueen.dir/src/solvers/Solver_BFS.cpp.o" \
+"CMakeFiles/nQueen.dir/src/solvers/Solver_Base.cpp.o"
 
 # External object files for target nQueen
 nQueen_EXTERNAL_OBJECTS =
@@ -138,9 +180,12 @@ nQueen: CMakeFiles/nQueen.dir/src/Misc/ProgressBar.cpp.o
 nQueen: CMakeFiles/nQueen.dir/src/board/Board.cpp.o
 nQueen: CMakeFiles/nQueen.dir/src/main.cpp.o
 nQueen: CMakeFiles/nQueen.dir/src/queen/Queen.cpp.o
+nQueen: CMakeFiles/nQueen.dir/src/search_results/SearchResults.cpp.o
+nQueen: CMakeFiles/nQueen.dir/src/solvers/Solver_BFS.cpp.o
+nQueen: CMakeFiles/nQueen.dir/src/solvers/Solver_Base.cpp.o
 nQueen: CMakeFiles/nQueen.dir/build.make
 nQueen: CMakeFiles/nQueen.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/sirhall/Documents/GitRepos/nQueens/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable nQueen"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/sirhall/Documents/GitRepos/nQueens/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable nQueen"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/nQueen.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

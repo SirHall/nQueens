@@ -6,6 +6,7 @@
 #include <memory>
 #include "Board.hpp"
 #include <chrono>
+#include <string>
 
 using namespace std::chrono;
 
@@ -17,6 +18,7 @@ class Solver_Base{
             std::unique_ptr<Board> initBoard,
             steady_clock::time_point &clock_start
         );
+        virtual std::string GetName();
 };
 
 #endif

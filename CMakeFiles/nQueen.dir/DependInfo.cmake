@@ -12,6 +12,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/sirhall/Documents/GitRepos/nQueens/src/search_results/SearchResults.cpp" "/home/sirhall/Documents/GitRepos/nQueens/CMakeFiles/nQueen.dir/src/search_results/SearchResults.cpp.o"
   "/home/sirhall/Documents/GitRepos/nQueens/src/solvers/Solver_BFS.cpp" "/home/sirhall/Documents/GitRepos/nQueens/CMakeFiles/nQueen.dir/src/solvers/Solver_BFS.cpp.o"
   "/home/sirhall/Documents/GitRepos/nQueens/src/solvers/Solver_Base.cpp" "/home/sirhall/Documents/GitRepos/nQueens/CMakeFiles/nQueen.dir/src/solvers/Solver_Base.cpp.o"
+  "/home/sirhall/Documents/GitRepos/nQueens/src/solvers/Solver_SimAnnealing.cpp" "/home/sirhall/Documents/GitRepos/nQueens/CMakeFiles/nQueen.dir/src/solvers/Solver_SimAnnealing.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

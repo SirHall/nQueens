@@ -8,7 +8,7 @@
 #include "SearchResults.hpp"
 using namespace std::chrono;
 
-class Solver_BFS : Solver_Base{
+class Solver_BFS : public Solver_Base{
     public:
         Solver_BFS();
         ~Solver_BFS();
@@ -18,6 +18,7 @@ class Solver_BFS : Solver_Base{
             std::unique_ptr<Board> initBoard,
             steady_clock::time_point &clock_start
             );
+        std::string GetName();
 };
 
 #endif

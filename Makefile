@@ -339,6 +339,33 @@ src/solvers/Solver_Base.cpp.s:
 	$(MAKE) -f CMakeFiles/nQueen.dir/build.make CMakeFiles/nQueen.dir/src/solvers/Solver_Base.cpp.s
 .PHONY : src/solvers/Solver_Base.cpp.s
 
+src/solvers/Solver_SimAnnealing.o: src/solvers/Solver_SimAnnealing.cpp.o
+
+.PHONY : src/solvers/Solver_SimAnnealing.o
+
+# target to build an object file
+src/solvers/Solver_SimAnnealing.cpp.o:
+	$(MAKE) -f CMakeFiles/nQueen.dir/build.make CMakeFiles/nQueen.dir/src/solvers/Solver_SimAnnealing.cpp.o
+.PHONY : src/solvers/Solver_SimAnnealing.cpp.o
+
+src/solvers/Solver_SimAnnealing.i: src/solvers/Solver_SimAnnealing.cpp.i
+
+.PHONY : src/solvers/Solver_SimAnnealing.i
+
+# target to preprocess a source file
+src/solvers/Solver_SimAnnealing.cpp.i:
+	$(MAKE) -f CMakeFiles/nQueen.dir/build.make CMakeFiles/nQueen.dir/src/solvers/Solver_SimAnnealing.cpp.i
+.PHONY : src/solvers/Solver_SimAnnealing.cpp.i
+
+src/solvers/Solver_SimAnnealing.s: src/solvers/Solver_SimAnnealing.cpp.s
+
+.PHONY : src/solvers/Solver_SimAnnealing.s
+
+# target to generate assembly for a file
+src/solvers/Solver_SimAnnealing.cpp.s:
+	$(MAKE) -f CMakeFiles/nQueen.dir/build.make CMakeFiles/nQueen.dir/src/solvers/Solver_SimAnnealing.cpp.s
+.PHONY : src/solvers/Solver_SimAnnealing.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -372,6 +399,9 @@ help:
 	@echo "... src/solvers/Solver_Base.o"
 	@echo "... src/solvers/Solver_Base.i"
 	@echo "... src/solvers/Solver_Base.s"
+	@echo "... src/solvers/Solver_SimAnnealing.o"
+	@echo "... src/solvers/Solver_SimAnnealing.i"
+	@echo "... src/solvers/Solver_SimAnnealing.s"
 .PHONY : help
 
 

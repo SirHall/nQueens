@@ -23,6 +23,7 @@ CMakeFiles/nQueen.dir/src/main.cpp.o
  include/SearchResults.hpp
  include/Solver_BFS.hpp
  include/Solver_Base.hpp
+ include/Solver_SimAnnealing.hpp
 CMakeFiles/nQueen.dir/src/queen/Queen.cpp.o
  /home/sirhall/Documents/GitRepos/nQueens/src/queen/Queen.cpp
  include/Queen.hpp
@@ -50,3 +51,13 @@ CMakeFiles/nQueen.dir/src/solvers/Solver_Base.cpp.o
  include/Queen.hpp
  include/SearchResults.hpp
  include/Solver_Base.hpp
+CMakeFiles/nQueen.dir/src/solvers/Solver_SimAnnealing.cpp.o
+ /home/sirhall/Documents/GitRepos/nQueens/src/solvers/Solver_SimAnnealing.cpp
+ include/Board.hpp
+ include/Dir.hpp
+ include/MathMore.hpp
+ include/ProgressBar.hpp
+ include/Queen.hpp
+ include/SearchResults.hpp
+ include/Solver_Base.hpp
+ include/Solver_SimAnnealing.hpp

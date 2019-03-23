@@ -25,6 +25,8 @@ class Board{
         bool Collisions(u_char *count);
         bool Collisions(Queen queen, u_char *count);
         
+        Queen GetQueen(u_char index);
+
         void Print(
             char sep, char indent,
             char aliveQueen, char deadQueen, 
@@ -51,6 +53,8 @@ class Board{
         bool operator==(Board other);
 
         #pragma endregion
+
+        bool IsWithinBoard(int xPos, int yPos);
 };
 
 #endif

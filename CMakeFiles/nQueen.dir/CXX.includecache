@@ -6,15 +6,45 @@
 
 #IncludeRegexTransform: 
 
-/home/sirhall/Documents/GitRepos/nQueens/src/solvers/Solver_BFS.cpp
+/home/sirhall/Documents/GitRepos/nQueens/src/main.cpp
+SearchResults.hpp
+/home/sirhall/Documents/GitRepos/nQueens/src/SearchResults.hpp
+ProgressBar.hpp
+/home/sirhall/Documents/GitRepos/nQueens/src/ProgressBar.hpp
 Solver_BFS.hpp
-/home/sirhall/Documents/GitRepos/nQueens/src/solvers/Solver_BFS.hpp
+/home/sirhall/Documents/GitRepos/nQueens/src/Solver_BFS.hpp
+Solver_SimAnnealing.hpp
+/home/sirhall/Documents/GitRepos/nQueens/src/Solver_SimAnnealing.hpp
+unordered_set
+-
 MathMore.hpp
-/home/sirhall/Documents/GitRepos/nQueens/src/solvers/MathMore.hpp
+/home/sirhall/Documents/GitRepos/nQueens/src/MathMore.hpp
+functional
+-
+Queen.hpp
+/home/sirhall/Documents/GitRepos/nQueens/src/Queen.hpp
+Board.hpp
+/home/sirhall/Documents/GitRepos/nQueens/src/Board.hpp
+string.h
+-
 iostream
 -
-ProgressBar.hpp
-/home/sirhall/Documents/GitRepos/nQueens/src/solvers/ProgressBar.hpp
+sstream
+-
+Dir.hpp
+/home/sirhall/Documents/GitRepos/nQueens/src/Dir.hpp
+memory
+-
+chrono
+-
+string
+-
+vector
+-
+cmath
+-
+queue
+-
 
 include/Board.hpp
 vector
@@ -77,4 +107,10 @@ Board.hpp
 include/Board.hpp
 chrono
 -
+string
+-
+
+include/Solver_SimAnnealing.hpp
+Solver_Base.hpp
+include/Solver_Base.hpp
 

@@ -221,3 +221,12 @@ void Board::Print(
     }
 }
 
+Queen Board::GetQueen(u_char index){
+    if(index >= queens.size())
+        throw std::invalid_argument("'index' falls outside of bounds");
+    return queens[index];
+}
+
+bool Board::IsWithinBoard(int xPos, int yPos){
+    return xPos >= 0 && yPos >= 0 && xPos < x && yPos < y;
+}

@@ -10,3 +10,7 @@ std::unique_ptr<SearchResults> Solver_Base::Solve(
 ){
     return std::unique_ptr<SearchResults>(new SearchResults());
 }
+
+std::string Solver_Base::GetName(){
+    return "Base Solver (Does nothing)";
+}

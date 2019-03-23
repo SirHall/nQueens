@@ -133,4 +133,6 @@ std::unique_ptr<SearchResults> Solver_BFS::Solve(
     );
 }
 
-
+std::string Solver_BFS::GetName(){
+    return "Row-Only Breadth First Search";
+}

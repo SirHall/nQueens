@@ -47,3 +47,7 @@ void SearchResults::Print(){
         }
 
 }
+
+u_long SearchResults::Solutions(){
+    return solutions->size();
+}

@@ -18,6 +18,7 @@ class SearchResults{
             u_long uniqueBoards, u_long expectedBoards, 
             std::unique_ptr<std::vector<std::unique_ptr<Board>>> solutions,
             double timeTaken);
+            u_long Solutions();
         ~SearchResults();
         void Print();
 };

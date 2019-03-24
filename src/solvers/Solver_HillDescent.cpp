@@ -88,12 +88,12 @@ std::unique_ptr<SearchResults> Solver_HillDescent::Solve(
     std::cout << "\tMax Depth: ";
     std::cin >> maxDepth;
 
-    u_long currentTries = 0;
+    // u_long currentTries = 0;
 
-    u_long boardsChecked = 0;
+    // u_long boardsChecked = 0;
 
-    auto clock_lastPrint = steady_clock::now();
-    double timeLeft = 100.0;
+    // auto clock_lastPrint = steady_clock::now();
+    // double timeLeft = 100.0;
 
 #pragma region Setup Initial Board
 

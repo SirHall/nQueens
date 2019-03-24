@@ -312,6 +312,33 @@ src/solvers/Solver_BFS.cpp.s:
 	$(MAKE) -f CMakeFiles/nQueen.dir/build.make CMakeFiles/nQueen.dir/src/solvers/Solver_BFS.cpp.s
 .PHONY : src/solvers/Solver_BFS.cpp.s
 
+src/solvers/Solver_BFS_Fast.o: src/solvers/Solver_BFS_Fast.cpp.o
+
+.PHONY : src/solvers/Solver_BFS_Fast.o
+
+# target to build an object file
+src/solvers/Solver_BFS_Fast.cpp.o:
+	$(MAKE) -f CMakeFiles/nQueen.dir/build.make CMakeFiles/nQueen.dir/src/solvers/Solver_BFS_Fast.cpp.o
+.PHONY : src/solvers/Solver_BFS_Fast.cpp.o
+
+src/solvers/Solver_BFS_Fast.i: src/solvers/Solver_BFS_Fast.cpp.i
+
+.PHONY : src/solvers/Solver_BFS_Fast.i
+
+# target to preprocess a source file
+src/solvers/Solver_BFS_Fast.cpp.i:
+	$(MAKE) -f CMakeFiles/nQueen.dir/build.make CMakeFiles/nQueen.dir/src/solvers/Solver_BFS_Fast.cpp.i
+.PHONY : src/solvers/Solver_BFS_Fast.cpp.i
+
+src/solvers/Solver_BFS_Fast.s: src/solvers/Solver_BFS_Fast.cpp.s
+
+.PHONY : src/solvers/Solver_BFS_Fast.s
+
+# target to generate assembly for a file
+src/solvers/Solver_BFS_Fast.cpp.s:
+	$(MAKE) -f CMakeFiles/nQueen.dir/build.make CMakeFiles/nQueen.dir/src/solvers/Solver_BFS_Fast.cpp.s
+.PHONY : src/solvers/Solver_BFS_Fast.cpp.s
+
 src/solvers/Solver_Base.o: src/solvers/Solver_Base.cpp.o
 
 .PHONY : src/solvers/Solver_Base.o
@@ -338,6 +365,33 @@ src/solvers/Solver_Base.s: src/solvers/Solver_Base.cpp.s
 src/solvers/Solver_Base.cpp.s:
 	$(MAKE) -f CMakeFiles/nQueen.dir/build.make CMakeFiles/nQueen.dir/src/solvers/Solver_Base.cpp.s
 .PHONY : src/solvers/Solver_Base.cpp.s
+
+src/solvers/Solver_HillDescent.o: src/solvers/Solver_HillDescent.cpp.o
+
+.PHONY : src/solvers/Solver_HillDescent.o
+
+# target to build an object file
+src/solvers/Solver_HillDescent.cpp.o:
+	$(MAKE) -f CMakeFiles/nQueen.dir/build.make CMakeFiles/nQueen.dir/src/solvers/Solver_HillDescent.cpp.o
+.PHONY : src/solvers/Solver_HillDescent.cpp.o
+
+src/solvers/Solver_HillDescent.i: src/solvers/Solver_HillDescent.cpp.i
+
+.PHONY : src/solvers/Solver_HillDescent.i
+
+# target to preprocess a source file
+src/solvers/Solver_HillDescent.cpp.i:
+	$(MAKE) -f CMakeFiles/nQueen.dir/build.make CMakeFiles/nQueen.dir/src/solvers/Solver_HillDescent.cpp.i
+.PHONY : src/solvers/Solver_HillDescent.cpp.i
+
+src/solvers/Solver_HillDescent.s: src/solvers/Solver_HillDescent.cpp.s
+
+.PHONY : src/solvers/Solver_HillDescent.s
+
+# target to generate assembly for a file
+src/solvers/Solver_HillDescent.cpp.s:
+	$(MAKE) -f CMakeFiles/nQueen.dir/build.make CMakeFiles/nQueen.dir/src/solvers/Solver_HillDescent.cpp.s
+.PHONY : src/solvers/Solver_HillDescent.cpp.s
 
 src/solvers/Solver_SimAnnealing.o: src/solvers/Solver_SimAnnealing.cpp.o
 
@@ -396,9 +450,15 @@ help:
 	@echo "... src/solvers/Solver_BFS.o"
 	@echo "... src/solvers/Solver_BFS.i"
 	@echo "... src/solvers/Solver_BFS.s"
+	@echo "... src/solvers/Solver_BFS_Fast.o"
+	@echo "... src/solvers/Solver_BFS_Fast.i"
+	@echo "... src/solvers/Solver_BFS_Fast.s"
 	@echo "... src/solvers/Solver_Base.o"
 	@echo "... src/solvers/Solver_Base.i"
 	@echo "... src/solvers/Solver_Base.s"
+	@echo "... src/solvers/Solver_HillDescent.o"
+	@echo "... src/solvers/Solver_HillDescent.i"
+	@echo "... src/solvers/Solver_HillDescent.s"
 	@echo "... src/solvers/Solver_SimAnnealing.o"
 	@echo "... src/solvers/Solver_SimAnnealing.i"
 	@echo "... src/solvers/Solver_SimAnnealing.s"

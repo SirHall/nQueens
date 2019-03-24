@@ -24,8 +24,8 @@ void Board::AddQueen(u_char xPos, u_char yPos){
     queens.push_back(Queen(xPos, yPos));
 }
 
-bool Board::Collisions(Queen queen, u_char *count = NULL){
-    u_char collisions = 0;
+bool Board::Collisions(Queen queen, u_long *count = NULL){
+    u_long collisions = 0;
     for(u_char i = 0; i < queens.size(); i++){
         if(queens[i] == queen) //Same instance of queen
             continue;
@@ -40,8 +40,8 @@ bool Board::Collisions(Queen queen, u_char *count = NULL){
     return collisions > 0;
 }
 
-bool Board::Collisions(u_char *count = NULL){
-    u_char collisions = 0;
+bool Board::Collisions(u_long *count){
+    u_long collisions = 0;
     for(u_char i = 0; i < queens.size(); i++){
         for(u_char j = i + 1; j < queens.size(); j++){
             if(queens[i].DoesCollide(queens[j])){
@@ -72,30 +72,41 @@ Board* Board::DeepCopy(){
     return newBoard;
 }
 
-std::unique_ptr<std::vector<std::unique_ptr<Board>>> Board::GenChildBoards(){
+std::unique_ptr<std::vector<std::unique_ptr<Board>>> Board::GenChildBoards(
+    bool horizontalOnly, bool canMoveBackwards
+){
+    //If horizontalOnly == false, canMoveBackwards cannot be false
+    if(!horizontalOnly) 
+        canMoveBackwards = true; 
     
     std::unique_ptr<std::vector<std::unique_ptr<Board>>>
         childBoards (new std::vector<std::unique_ptr<Board>>); 
-    
+
+        signed char 
+        xMin = (canMoveBackwards ? -1 : 1), 
+        xMax = 1,
+        yMin = (horizontalOnly ? 0 : -1),
+        yMax = (horizontalOnly ? 0 : 1); 
+
     for(u_char index = 0; index < queens.size(); index++){ //All queens
         Queen queen = queens[index];
     
-        for(signed char xDiff = -1; xDiff <= 1; xDiff++){ //All x moves
-            // for(signed char yDiff = -1; yDiff <= 1; yDiff++){ //All y moves
-                if(/*yDiff == 0 && */xDiff == 0)
+        for(signed char xDiff = xMin; xDiff <= xMax; xDiff++){ //All x moves
+            for(signed char yDiff = yMin; yDiff <= yMax; yDiff++){ //All y moves
+                if(yDiff == 0 && xDiff == 0)
                     continue;
-                u_char 
-                    checkX = queen.GetX() + xDiff;//,
-                    // checkY = queen.GetY() + yDiff; 
+                int
+                    checkX = (int)queen.GetX() + xDiff,
+                    checkY = (int)queen.GetY() + yDiff; 
                 if(
-                    checkX < x && /*checkY < y &&*/ 
-                    QueenAtPos(checkX, queen.GetY()) == NULL
+                    IsWithinBoard(checkX, checkY) &&
+                    QueenAtPos(checkX, checkY) == NULL
                 ){//Generate board
                     auto newBoard = std::unique_ptr<Board>(DeepCopy());
-                    newBoard->MoveQueen(index, checkX, queen.GetY());
+                    newBoard->MoveQueen(index, checkX, checkY);
                     childBoards->push_back(std::move(newBoard));
                 }
-            // }
+            }
         }
     }
 

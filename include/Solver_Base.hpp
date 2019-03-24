@@ -15,7 +15,7 @@ class Solver_Base{
         Solver_Base();
         virtual ~Solver_Base() = default;
         virtual std::unique_ptr<SearchResults> Solve(
-            std::unique_ptr<Board> initBoard,
+            u_char size,
             steady_clock::time_point &clock_start
         );
         virtual std::string GetName();

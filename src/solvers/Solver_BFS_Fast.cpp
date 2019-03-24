@@ -1,17 +1,17 @@
-#include "Solver_BFS.hpp"
+#include "Solver_BFS_Fast.hpp"
 #include "MathMore.hpp"
 #include <iostream>
 #include "ProgressBar.hpp"
 
-Solver_BFS::Solver_BFS(){
+Solver_BFS_Fast::Solver_BFS_Fast(){
 
 }
 
-Solver_BFS::~Solver_BFS(){
+Solver_BFS_Fast::~Solver_BFS_Fast(){
 
 }
 
-std::unique_ptr<SearchResults> Solver_BFS::Solve(
+std::unique_ptr<SearchResults> Solver_BFS_Fast::Solve(
     u_char size, 
     steady_clock::time_point &clock_start){
     
@@ -37,9 +37,11 @@ std::unique_ptr<SearchResults> Solver_BFS::Solve(
 
 #pragma region Storage Constructs
 
-    auto explored = std::unique_ptr<std::vector<std::unique_ptr<Board>>>(
-        new std::vector<std::unique_ptr<Board>>()
-    );
+
+    //We actually don't need this as no queens are moving backwards
+    // auto explored = std::unique_ptr<std::vector<std::unique_ptr<Board>>>(
+    //     new std::vector<std::unique_ptr<Board>>()
+    // );
 
     auto frontier = std::unique_ptr<std::vector<std::unique_ptr<Board>>>(
         new std::vector<std::unique_ptr<Board>>()
@@ -64,6 +66,7 @@ std::unique_ptr<SearchResults> Solver_BFS::Solve(
     frontier->push_back(std::move(initBoard));
 
     clock_start = steady_clock::now();
+
 #pragma region Search State Space
     std::cout << "Size: " << (int)size << "\n\n";
 
@@ -76,50 +79,49 @@ std::unique_ptr<SearchResults> Solver_BFS::Solve(
             frontier->erase(frontier->begin());
 
             // Ensure that this is a new board
-            bool alreadyExists = false;
+            // bool alreadyExists = false;
             
-            alreadyExists = Board::AlreadyExists(frontierBoard, explored);
+            // alreadyExists = Board::AlreadyExists(frontierBoard, explored);
             
-            if(!alreadyExists){
+            // if(!alreadyExists){
                 //Generate children
-                auto boardChildren = frontierBoard->GenChildBoards(
-                    true, true
-                );
+            auto boardChildren = frontierBoard->GenChildBoards(
+                true, false
+            );
 
-                //For every childboard
-                while(boardChildren->size() > 0){
-                    std::unique_ptr<Board> childBoard = 
-                        std::move(boardChildren->at(boardChildren->size() - 1));
-                    boardChildren->erase(boardChildren->end());
+            //For every childboard
+            while(boardChildren->size() > 0){
+                std::unique_ptr<Board> childBoard = 
+                    std::move(boardChildren->at(boardChildren->size() - 1));
+                boardChildren->erase(boardChildren->end());
 
-                    //Make sure board is not in frontier or explored
-                    if(
-                    !Board::AlreadyExists(childBoard, frontier)
-                    &&
-                    !Board::AlreadyExists(childBoard, fronterChildren))
-                        fronterChildren->push_back(std::move(childBoard));
-                
-                }
-                // std::cout << "Before\n";
-                //Push a copy to frontierBoard
-                if(!frontierBoard->Collisions(NULL)) 
-                    solutions->push_back(
-                        std::unique_ptr<Board>(frontierBoard->DeepCopy())
-                    );
-                
-                //Add it to the explored set
-                explored->push_back(std::move(frontierBoard));
-                exploredSize++;
-                
-                // std::cout << "After\n";
+                //Make sure board is not in frontier or explored
+                if(
+                !Board::AlreadyExists(childBoard, frontier)
+                &&
+                !Board::AlreadyExists(childBoard, fronterChildren))
+                    fronterChildren->push_back(std::move(childBoard));
+            
             }
-            PrintProgress(
-                clock_start, &clock_lastPrint,
-                30.0, timeLeft, solutions->size(), 
-                exploredSize, lastExploredSize,
-                // explored->size(),// + frontier->size() + fronterChildren->size(),
-                expectedBoards, 25, i
-                ); 
+            // std::cout << "Before\n";
+            //Push a copy to frontierBoard
+            if(!frontierBoard->Collisions(NULL)) 
+                solutions->push_back(
+                    std::unique_ptr<Board>(frontierBoard->DeepCopy())
+                );
+            
+            //Add it to the explored set
+            // explored->push_back(std::move(frontierBoard));
+            exploredSize++;
+            
+            // std::cout << "After\n";
+        PrintProgress(
+            clock_start, &clock_lastPrint,
+            30.0, timeLeft, solutions->size(), 
+            exploredSize, lastExploredSize,
+            // explored->size(),// + frontier->size() + fronterChildren->size(),
+            expectedBoards, 25, i
+            ); 
             
         }
 
@@ -143,7 +145,7 @@ std::unique_ptr<SearchResults> Solver_BFS::Solve(
     return std::move(
         std::unique_ptr<SearchResults>(
             new SearchResults(
-                explored->size(), 
+                exploredSize, 
                 expectedBoards, 
                 std::move(solutions), 
                 GetTime(clock_start)
@@ -152,6 +154,6 @@ std::unique_ptr<SearchResults> Solver_BFS::Solve(
     );
 }
 
-std::string Solver_BFS::GetName(){
-    return "Row-Only Breadth First Search";
+std::string Solver_BFS_Fast::GetName(){
+    return "Row-Only Breadth First Search Fast";
 }

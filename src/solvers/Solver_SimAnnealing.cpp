@@ -16,9 +16,23 @@ Solver_SimAnnealing::Solver_SimAnnealing(){}
 Solver_SimAnnealing::~Solver_SimAnnealing(){}
 
 std::unique_ptr<SearchResults> Solver_SimAnnealing::Solve(
-    std::unique_ptr<Board> initBoard,
+    u_char size,
     steady_clock::time_point &clock_start){
     
+    #pragma region Setup Initial Board
+
+    //Setup initial board
+    std::cout << "Initial Board:\n";
+    std::vector<Queen> queens = std::vector<Queen>();
+    for(int i = 0; i < size; i++)
+        queens.push_back(Queen(i, i)); //Place queens diagonally
+    std::unique_ptr<Board> initBoard (new Board(size, size, queens));
+
+    std::cout << '\n';
+    initBoard->Print();
+
+#pragma endregion
+
     std::srand(std::time(NULL));
 
     u_long maxIterations = 1000;
@@ -51,6 +65,8 @@ std::unique_ptr<SearchResults> Solver_SimAnnealing::Solve(
     std::unique_ptr<std::vector<std::unique_ptr<Board>>> solution 
         (new std::vector<std::unique_ptr<Board>>);
 
+    clock_start = steady_clock::now();
+
     for(u_long i = 0; i < maxIterations; i++){
 
         PrintProgress(
@@ -63,7 +79,7 @@ std::unique_ptr<SearchResults> Solver_SimAnnealing::Solve(
         MoveRandomQueenRandomly(newBoard);
         boardsChecked++;
 
-        u_char newCost = UINT8_MAX;
+        u_long newCost = UINT64_MAX;
 
         //Test for number of collisions, and see if there are any
         if(!newBoard->Collisions(&newCost)){

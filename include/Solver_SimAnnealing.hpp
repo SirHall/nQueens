@@ -24,7 +24,7 @@ class Solver_SimAnnealing : public Solver_Base{
         //NOTE: Use std::move(initBoard) to move possession  of board
         //  to this function 
         std::unique_ptr<SearchResults> Solve(
-            std::unique_ptr<Board> initBoard,
+            u_char size,
             steady_clock::time_point &clock_start
             );
         std::string GetName();

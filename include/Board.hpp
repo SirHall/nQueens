@@ -22,8 +22,8 @@ class Board{
         u_char GetRows();
         void AddQueen(u_char xPos, u_char yPos);
         Board* DeepCopy();
-        bool Collisions(u_char *count);
-        bool Collisions(Queen queen, u_char *count);
+        bool Collisions(u_long *count);
+        bool Collisions(Queen queen, u_long *count);
         
         Queen GetQueen(u_char index);
 
@@ -33,7 +33,9 @@ class Board{
             char whiteSquare, char blackSquare);
         void Print();
         Queen* QueenAtPos(u_char x, u_char y);
-        std::unique_ptr<std::vector<std::unique_ptr<Board>>> GenChildBoards();
+        std::unique_ptr<std::vector<std::unique_ptr<Board>>> GenChildBoards(
+            bool horizontalOnly, bool canMoveBackwards
+        );
 
         void MoveQueen(u_char index, u_char newX, u_char newY);
         void MoveQueen(u_char index, Dir direction);

@@ -7,20 +7,22 @@
 
 #include "Board.hpp"
 
-class SearchResults{
-    private:
-        u_long uniqueBoards, expectedBoards;
-        std::unique_ptr<std::vector<std::unique_ptr<Board>>> solutions;
-        double timeTaken;
-    public:
-        SearchResults();
-        SearchResults(
-            u_long uniqueBoards, u_long expectedBoards, 
-            std::unique_ptr<std::vector<std::unique_ptr<Board>>> solutions,
-            double timeTaken);
-            u_long Solutions();
-        ~SearchResults();
-        void Print();
+class SearchResults
+{
+private:
+    u_long uniqueBoards, expectedBoards;
+    std::unique_ptr<std::vector<std::unique_ptr<Board>>> solutions;
+    double                                               timeTaken;
+
+public:
+    SearchResults();
+    SearchResults(
+        u_long uniqueBoards, u_long expectedBoards,
+        std::unique_ptr<std::vector<std::unique_ptr<Board>>> solutions,
+        double                                               timeTaken);
+    u_long Solutions();
+    ~SearchResults();
+    void Print();
 };
 
 #endif

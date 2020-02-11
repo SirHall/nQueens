@@ -1,6 +1,6 @@
-#include "Solver_Insert.hpp"
 #include "MathMore.hpp"
 #include "ProgressBar.hpp"
+#include "Solver_Insert.hpp"
 #include <iostream>
 
 static void

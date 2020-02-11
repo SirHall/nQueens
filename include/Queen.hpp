@@ -4,28 +4,30 @@
 #include <memory>
 // #include "uu_char.h"
 
-struct Queen{
-    private:
-        u_char x, y;
-    public:
-        Queen();
-        Queen(u_char xPos, u_char yPos);
-        ~Queen();
-        u_char GetX();
-        u_char GetY();
-        void SetX(u_char x);
-        void SetY(u_char y);
-        bool DoesCollide(Queen other);
-        bool DoesCollide(u_char x, u_char y);
+struct Queen
+{
+private:
+    u_char x, y;
 
-        unsigned short PosSingle() const;
+public:
+    Queen();
+    Queen(u_char xPos, u_char yPos);
+    ~Queen();
+    u_char GetX() const;
+    u_char GetY() const;
+    void   SetX(u_char x);
+    void   SetY(u_char y);
+    bool   DoesCollide(Queen other) const;
+    bool   DoesCollide(u_char x, u_char y) const;
 
-        #pragma region Operator Overloads
+    unsigned short PosSingle() const;
 
-        bool operator ==(Queen other);
-        bool operator !=(Queen other);
-        
-        #pragma endregion
+#pragma region Operator Overloads
+
+    bool operator==(Queen other) const;
+    bool operator!=(Queen other) const;
+
+#pragma endregion
 };
 
 #endif
